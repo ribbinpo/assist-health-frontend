@@ -1,11 +1,15 @@
 import React from 'react';
 
-const button = () => {
+type buttonProp = {
+    buttonName: string
+};
+
+const button = ({ buttonName }: buttonProp) => {
     return (
         <div>
-           <button className="rounded-full bg-red-800 ring-2 ring-pink-300 ring-inset">
-            <div className="text-lg text-white">
-                Login
+           <button className="rounded-full bg-red-800">
+            <div className="text-lg text-white px-32 py-3">
+                {buttonName}
             </div>
             </button>
         </div>
