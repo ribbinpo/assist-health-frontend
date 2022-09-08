@@ -1,2 +1,2 @@
 export { AuthLogin } from './login';
-export { Signup } from './signup';
+export { AuthSignup } from './signup';

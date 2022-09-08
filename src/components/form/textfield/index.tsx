@@ -7,7 +7,7 @@ type textfieldProps = {
   value: string,
 };
 
-const textfield = ({ placeholder, hidden, onChange, value }: textfieldProps) => {
+const textfield = ({ placeholder , hidden, onChange, value }: textfieldProps) => {
   return (
     <input
       type={(hidden) ? 'password':'text' }
