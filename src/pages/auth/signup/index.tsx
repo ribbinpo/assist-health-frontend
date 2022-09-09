@@ -31,6 +31,15 @@ const authSignup = () => {
             </div>
             <TextField placeholder="Birthday" value={password} hidden={true} onChange={(e) => setPassword(e.target.value)} />
             <TextField placeholder="ID-Card/Passport" value={password} hidden={true} onChange={(e) => setPassword(e.target.value)} />
+            <div className='grid gap-4 grid-cols-4'>
+              <div><p className='text-[#B0B0B0]'>Gender</p></div> 
+              <div><input type="checkbox" name="remember" value="" className="rounded-xl "></input>
+              <label className='text-[#B0B0B0] pl-2'>Male</label></div>
+              <div><input type="checkbox" name="remember" value="" className="rounded-xl"></input>
+              <label className='text-[#B0B0B0] pl-2'>Female</label></div>
+              <div><input type="checkbox" name="remember" value="" className="rounded-xl"></input>
+              <label className='text-[#B0B0B0] pl-2'>Other</label></div>
+            </div>
         </div>
     </div>
   );
