@@ -1,4 +1,4 @@
-import { AuthLogin, AuthSignup } from "../pages";
+import { AuthLogin, AuthSignup, Dashboard } from "../pages";
 
 export const guestRoutes = [
   {
@@ -8,5 +8,9 @@ export const guestRoutes = [
   {
     path: '/auth/signup',
     element: <AuthSignup />
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />
   }
 ];

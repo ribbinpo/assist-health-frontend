@@ -11,7 +11,7 @@ const textfield = ({ placeholder , hidden, onChange, value }: textfieldProps) =>
   return (
     <input
       type={(hidden) ? 'password':'text' }
-      className="form-input rounded-md border-none p-3"    
+      className="form-input rounded-md border-none p-3  w-full"    
       placeholder={placeholder}
       onChange={onChange}
       value={value}
