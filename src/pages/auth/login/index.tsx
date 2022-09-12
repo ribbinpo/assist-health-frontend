@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { TextField, Button } from 'components';
 import Logo from 'assets/images/Logo.png';
 
 const authLogin = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -27,10 +29,9 @@ const authLogin = () => {
                 <input type="checkbox" name="remember" value="" className="rounded-sm"></input>
                 <label className='text-slate-400'>Remember Me</label>
               </div>
-              <div className='text-red-800'>Forgot password?</div>
             </div>
             <Button buttonName="Login" />
-          <div className='text-right underline text-[#B0B0B0]'>
+          <div className='text-right underline cursor-pointer text-[#B0B0B0]' onClick={() => { navigate('/auth/signup'); }}>
             SIGN UP
           </div>
         </div>
