@@ -15,7 +15,7 @@ const authLogin = () => {
     console.log(password);
   }
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center min-h-screen shadow-md">
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-y-9 px-16 py-10 rounded-md" style={{ backgroundColor: '#EAE9E9' }}>
           <div className="flex items-center">
@@ -30,7 +30,7 @@ const authLogin = () => {
                 <label className='text-slate-400'>Remember Me</label>
               </div>
             </div>
-            <Button buttonName="Login" />
+            <Button buttonName="Login"/>
           <div className='text-right underline cursor-pointer text-[#B0B0B0]' onClick={() => { navigate('/auth/signup'); }}>
             SIGN UP
           </div>
