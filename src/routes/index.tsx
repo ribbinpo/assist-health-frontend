@@ -1,4 +1,4 @@
-import { AuthLogin, AuthSignup, Dashboard, Classfitness, Exercise } from "../pages";
+import { AuthLogin, AuthSignup, Dashboard, Classfitness, Exercise, Mybooking } from "../pages";
 
 export const guestRoutes = [
   {
@@ -20,5 +20,10 @@ export const guestRoutes = [
   {
     path: '/exercise',
     element: <Exercise />
+  },
+  {
+    path: '/mybooking',
+    element: <Mybooking />
   }
+
 ];
