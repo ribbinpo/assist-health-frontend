@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Buttonbooking } from 'components';
+import { TextField, Button, Buttoncancel } from 'components';
 
 const mybooking = () => {
     return (
@@ -23,7 +23,42 @@ const mybooking = () => {
             <div className="px-8">
                 <hr></hr>
             </div>
-
+                    <div className="pl-7 pt-5 pr-7">
+                        <div className="bg-[#D0E495] rounded-full ">
+                            <div className="grid gap-x-2 gap-y-4 grid-cols-4 items-center">
+                            <div  className="text-black pl-5 font-bold">BODYPUMP</div>
+                            <div  className="text-black pl-5">08:00-09:00</div>
+                            <div  className="text-black pl-5">3/15</div>
+                            <div  className="pl-5 pr-7"><Buttoncancel buttonName="Cancel" /></div>
+                            </div>
+                         </div>
+                    </div>
+                    <div className="pl-7 pt-5 pr-7">
+                        <div className="bg-[#F17474] rounded-full ">
+                            <div className="grid gap-x-2 gap-y-4 grid-cols-4 items-center">
+                            <div  className="text-black pl-5 font-bold">BODYJAM</div>
+                            <div  className="text-black pl-5">18:00-19:30</div>
+                            <div  className="text-black pl-5">3/15</div>
+                            <div  className="pl-5 pr-7"><Buttoncancel buttonName="Cancel" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="pl-7 pt-5 pr-7">
+                        <div className="bg-[#74B5F1] rounded-full ">
+                            <div className="grid gap-x-2 gap-y-4 grid-cols-4 items-center">
+                            <div  className="text-black pl-5 font-bold">BODYBALANCE</div>
+                            <div  className="text-black pl-5">20:00-21:00</div>
+                            <div  className="text-black pl-5">3/15</div>
+                            <div  className="pl-5 pr-7"><Buttoncancel buttonName="Cancel" /></div>
+                            </div>
+                        </div>
+                    </div>
+            <div className="text-[#7B787880] pl-8 pt-8">
+            28/08/22 TRAINER
+            </div>
+            <div className="px-8">
+                <hr></hr>
+            </div>
         </div>
     );
 }

@@ -7,8 +7,8 @@ type buttonProp = {
 
 const buttonbooking = ({ buttonName, onClick }: buttonProp) => {
     return (
-        <div>
-           <button className="rounded-full bg-red-800 shadow-md" onClick={onClick}>
+        <div className="pl-16">
+           <button className="rounded-full bg-red-800 shadow-md mt-2 mb-2" onClick={onClick}>
             <div className="text-lg text-white px-3 py-3">
                 {buttonName}
             </div>
