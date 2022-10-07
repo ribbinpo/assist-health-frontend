@@ -4,13 +4,15 @@ import Bgtrainer from 'assets/images/bgtrainer.png'
 import { TextField, Button, Buttoncancel, Topictrainer } from 'components';
 import Julie from 'assets/images/julie.png'
 
+
 const trainer = () => {
+    const navigate = useNavigate();
     return(
         <div>
             <div><img src={Bgtrainer} className="w-full" /></div>
             <div className="grid gap-2 grid-cols-2">
                 <div className="text-5xl pl-7 pt-8 font-bold text-black">Trainer</div>
-                <div className="pt-8"><Button buttonName=" MY TRAINER" /></div>
+                <div className="pt-8" onClick={() => { navigate('/mytrainer'); }}><Button buttonName=" MY TRAINER" /></div>
             </div>
             <div className="pt-8 px-8">
                 <div className="bg-[#DCDCDC] rounded-lg grid gap-3 grid-cols-2">
@@ -25,7 +27,7 @@ const trainer = () => {
                             <li>Weight Training</li>
                         </div>
                         <div><Topictrainer topicName="Certificate"/><div className=" text-black font-light text-lg ">Functional Training 101</div></div>
-                        <div className="pt-2 pb-2 pl-60"><Buttoncancel buttonName="Select"/></div>
+                        <div className="pt-2 pb-2 pl-60" onClick={() => { navigate('/mytrainer'); }}><Buttoncancel buttonName="Select"/></div>
                     </div>
                 </div>
             </div>
@@ -42,7 +44,7 @@ const trainer = () => {
                             <li>Weight Training</li>
                         </div>
                         <div><Topictrainer topicName="Certificate"/><div className=" text-black font-light text-lg ">Functional Training 101</div></div>
-                        <div className="pt-2 pb-2 pl-60"><Buttoncancel buttonName="Select"/></div>
+                        <div className="pt-2 pb-2 pl-60" onClick={() => { navigate('/mytrainer'); }}><Buttoncancel buttonName="Select"/></div>
                     </div>
                 </div>
             </div>
@@ -59,7 +61,7 @@ const trainer = () => {
                             <li>Weight Training</li>
                         </div>
                         <div><Topictrainer topicName="Certificate"/><div className=" text-black font-light text-lg ">Functional Training 101</div></div>
-                        <div className="pt-2 pb-2 pl-60"><Buttoncancel buttonName="Select"/></div>
+                        <div className="pt-2 pb-2 pl-60" onClick={() => { navigate('/mytrainer'); }}><Buttoncancel buttonName="Select"/></div>
                     </div>
                 </div>
             </div>

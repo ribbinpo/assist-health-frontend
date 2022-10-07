@@ -3,4 +3,7 @@ export * from './dashboard';
 export * from './classfitness';
 export * from './exercise';
 export * from './mybooking';
-export * from './trainer'
+export * from './trainer';
+export * from './mytrainer'
+export * from './account';
+export * from './trainerschdule'
