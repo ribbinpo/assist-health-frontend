@@ -4,4 +4,7 @@ export { Buttonbooking } from './buttonbooking';
 export { Buttoncancel } from './buttoncancel';
 export { Topictrainer } from './topictrainer';
 export { Bottontrainer } from './buttontrainer';
-export { Slottrainer } from './slottrainer'
+export { Slottrainer } from './slottrainer';
+export { Slotclasscardio } from './slotclasscardio';
+export { Slotclassstrength } from './slotclassstrength';
+export { Slotclasssflexlity } from './slotclassflexlity'

@@ -1,14 +1,17 @@
-import React from "react";
+ import React, { useState } from "react";
 import { TextField, Button,  Buttonbooking, Bottontrainer, Slottrainer} from 'components';
+
 
 
 
 const trainerschdule = () => {
     return (
         <div>
-        <div className="text-5xl ml-5 pt-8 font-bold">BOOKING TRAINER</div>
-        {/* <TextField placeholder="Date" value={value}/> */}
+        <div className="text-5xl ml-5 pt-8 font-bold pl-2">BOOKING TRAINER</div>
         <div className="px-8">
+        <div className="py-6">
+            <input type="date"className="form-input rounded-md w-36 border-slate-CCCCCC bg-[#F2F2F2]"/>
+        </div>
                 <hr></hr>
         </div>
             <Slottrainer slotname="9:00-10:00"/>

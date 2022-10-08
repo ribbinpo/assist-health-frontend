@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Buttoncancel, Topictrainer } from 'components';
 import Julie from 'assets/images/julie.png'
 
+
 const mytrainer = () => {
+    const navigate = useNavigate();
     return (
     
         <div>
@@ -21,7 +23,7 @@ const mytrainer = () => {
                             <li>Weight Training</li>
                         </div>
                         <div><Topictrainer topicName="Certificate"/><div className=" text-black font-light text-lg ">Functional Training 101</div></div>
-                        <div className="pt-4 pb-4"><Button buttonName="Booking"/></div>
+                        <div className="pt-4 pb-4" onClick={() => { navigate('/trainerschdule'); }}><Button buttonName="Booking"/></div>
                     </div>
                 </div>
         </div>
