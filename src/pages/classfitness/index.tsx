@@ -16,14 +16,14 @@ const classfitness = () => {
                 <div className="bg-[#D0E495] uppercase rounded-xl flex justify-center items-center">
                     <div className="text-white">STRENGTH</div> 
                 </div>
-                <div className="bg-[#74B5F1] uppercase rounded-xl flex justify-center items-center ">
+                <div className="bg-[#74B5F1] uppercase rounded-xl flex justify-center items-center">
                     <div className="text-white">FLEXLITY</div> 
                 </div>
             </div>
             
                     <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" quantity="1/20"/>
                     <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" quantity="5/20"/>
-                    <Slotclasssflexlity slotclassname="SH`BAM" time="17:00-18:00" quantity=""/>
+                    <Slotclasssflexlity slotclassname="SH`BAM~~~" time="17:00-18:00" quantity="0/20"/>
 
 
                     

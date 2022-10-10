@@ -1,5 +1,6 @@
 import react from "react";
 import { TextField, Button, Buttonbooking } from 'components';
+import User from 'assets/images/user.png'
 
 const slotclassstrength = ({slotclassname, time, quantity}: any) => {
     return (
@@ -8,7 +9,10 @@ const slotclassstrength = ({slotclassname, time, quantity}: any) => {
             <div className="items-center flex justify-between ">
             <div  className="text-black pl-5 font-bold">{slotclassname}</div>
             <div  className="text-black pl-5">{time}</div>
-            <div  className="text-black pl-5">{quantity}</div>
+            <div className="flex flex-row items-center">
+                <img src={ User } className="w-8" />
+                <div  className="text-black pl-5"> {quantity}</div>
+            </div>
             <div  className="pl-5 pr-7"><Buttonbooking buttonName="BOOKING" /></div>
             </div>
     </div>

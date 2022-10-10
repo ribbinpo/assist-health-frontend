@@ -6,4 +6,5 @@ export * from './mybooking';
 export * from './trainer';
 export * from './mytrainer'
 export * from './account';
-export * from './trainerschdule'
+export * from './trainerschdule';
+export * from './backoffice';

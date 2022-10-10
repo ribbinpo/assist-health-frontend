@@ -7,4 +7,5 @@ export { Bottontrainer } from './buttontrainer';
 export { Slottrainer } from './slottrainer';
 export { Slotclasscardio } from './slotclasscardio';
 export { Slotclassstrength } from './slotclassstrength';
-export { Slotclasssflexlity } from './slotclassflexlity'
+export { Slotclasssflexlity } from './slotclassflexlity';
+export { Sidebar } from './sidebar'

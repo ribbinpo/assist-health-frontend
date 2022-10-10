@@ -9,7 +9,7 @@ const mytrainer = () => {
     return (
     
         <div>
-        <div className="text-5xl pl-7 pt-8 font-bold text-black">My traier</div>
+        <div className="text-5xl pl-7 pt-8 font-bold text-black">My trainer</div>
         <div className="pt-8 px-8">
                 <div className="bg-[#DCDCDC] rounded-lg grid gap-3 grid-cols-2">
                     <div><img src={Julie} className="pt-8 pb-8 pl-8 w-60 h-108 "/></div>
