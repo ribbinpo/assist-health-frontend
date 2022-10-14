@@ -1,4 +1,4 @@
-import { AuthLogin, AuthSignup, Dashboard, Classfitness, Exercise, Mybooking, Trainer, Mytrainer, Account, Trainerschdule, BackofficeAdmin, BackofficeUser, Edituser, Adminclass, Adduser, Addclass, Editclass, Viewclass } from "../pages";
+import { AuthLogin, AuthSignup, Dashboard, Classfitness, Exercise, Mybooking, Trainer, Mytrainer, Account, Trainerschdule, BackofficeAdmin, BackofficeUser, Edituser, Adminclass, Adduser, Addclass, Editclass, Viewclass, Deluser } from "../pages";
 
 export const guestRoutes = [
   {
@@ -72,6 +72,10 @@ export const guestRoutes = [
   {
     path: '/viewclass',
     element: <Viewclass />
+  },
+  {
+    path: '/deluser',
+    element: <Deluser />
   }
 
 

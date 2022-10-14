@@ -5,4 +5,5 @@ export * from './adminclass';
 export * from './adduser';
 export * from './addclass';
 export * from './editclass';
-export * from './viewclass'
+export * from './viewclass';
+export * from './deluser'

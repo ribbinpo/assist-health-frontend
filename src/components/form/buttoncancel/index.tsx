@@ -7,9 +7,9 @@ type buttonProp = {
 
 const buttoncancel = ({ buttonName, onClick }: buttonProp) => {
     return (
-        <div className='pl-16'>
-            <button className='rounded-full bg-yellow-300 shadow-md mt-2 mb-2'onClick={onClick}>
-                <div className='text-lg text-white px-3 py-3'>
+        <div>
+            <button className='rounded-xl bg-yellow-300 shadow-md mt-2 mb-2 w-full'onClick={onClick}>
+                <div className='text-lg text-white px-14 py-3'>
                     {buttonName}
                 </div>
             </button>
