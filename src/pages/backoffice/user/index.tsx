@@ -17,6 +17,9 @@ const backofficeuser = () => {
             <div className="p-2 text-white" onClick={()=>{router("/adduser");}}> Add User + </div> 
             </button></div>
             </div>
+            <div className="px-2 pt-5 pb-3">
+                <hr></hr>
+            </div>
 
             <div className="pt-2 px-2 pl-2 w-full">
             <table className="border-collapse w-full text-center">
