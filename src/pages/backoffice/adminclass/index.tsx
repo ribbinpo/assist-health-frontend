@@ -1,9 +1,23 @@
 import { Sidebar } from "components";
 import React from "react";
 import { useNavigate, useRoutes } from 'react-router-dom';
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import { TextField, Button, Addclass } from 'components';
 
 const adminclass = () => {
+
     const router = useNavigate();
+
+    const [isOpen, setIsOpen] = useState(false)
+  
+    function closeModal() {
+      setIsOpen(false)
+    }
+  
+    function openModal() {
+      setIsOpen(true)
+    }
     return(
         <div className="flex">
             <Sidebar/>
@@ -11,14 +25,52 @@ const adminclass = () => {
             <div className="flex justify-between">
             <div className="px-2 pt-5 text-2xl font-bold">Class</div>
             <div></div>
-            <div> <button className='rounded-xl bg-[#00B11C] shadow-md mt-4 ml-2 mr-2 px-4'> 
-            <div className="p-2 text-white" onClick={()=>{router("/addclass");}}> Add Class + </div> 
+            <div> <button 
+            type="button"
+            onClick={openModal} 
+            className='rounded-xl bg-[#00B11C] shadow-md mt-4 ml-2 mr-2 px-4'> 
+            <div className="p-2 text-white"> Add Class + </div> 
             </button></div>
             </div>
             <div className="px-2 pt-5 pb-3">
                 <hr></hr>
             </div>
+            
+            <Transition appear show={isOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                <div className="fixed inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
 
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel>
+                 <div><Addclass/></div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+
+      
             <div className="pt-2 px-2 pl-2 w-full">
             <table className="border-collapse w-full text-center">
                 <thead>
@@ -83,5 +135,6 @@ const adminclass = () => {
         </div>
     )
 };
+
 
 export { adminclass as Adminclass};

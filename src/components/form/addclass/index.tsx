@@ -34,8 +34,7 @@ const addclass = () => {
     //setGender(e.target.value);
   }
   return (
-    <div className="flex">
-    <div><Sidebar/></div>
+    <div>
     <div className=' w-full justify-center'>
     <div className="flex justify-center items-center min-h-screen">
         <div className="flex flex-col gap-y-5 py-5 rounded-md px-10" style={{ backgroundColor: '#EAE9E9' }}>
@@ -145,7 +144,7 @@ const addclass = () => {
         </div>
         </div>
         </div>
-    </div>
+        </div>
     
   );
 }
