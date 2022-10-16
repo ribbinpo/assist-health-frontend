@@ -1,5 +1,5 @@
 import { Sidebar } from "components";
-import React from "react";
+import React, { useState } from "react";
 import { TextField, Button, Buttoncancel, Topictrainer,Bottontrainer } from 'components';
 import { useNavigate, useRoutes } from 'react-router-dom';
 
@@ -7,6 +7,17 @@ import { useNavigate, useRoutes } from 'react-router-dom';
 const backofficeuser = () => {
 
     const router = useNavigate();
+
+    const [isOpenEditUser, setIsOpenEditUser] = useState(false)
+
+    function closeModalEditUser(){
+        setIsOpenEditUser(false)
+    }
+
+    function openModalEditUser(){
+        setIsOpenEditUser(true)
+    }
+    
     return (
         <div className="flex">
             <Sidebar/>

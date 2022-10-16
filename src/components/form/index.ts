@@ -9,4 +9,6 @@ export { Slotclasscardio } from './slotclasscardio';
 export { Slotclassstrength } from './slotclassstrength';
 export { Slotclasssflexlity } from './slotclassflexlity';
 export { Sidebar } from './sidebar';
-export { Addclass } from './addclass'
+export { Addclass } from './addclass';
+export { Editclass } from './editclass';
+export { Deluser } from './deluser';

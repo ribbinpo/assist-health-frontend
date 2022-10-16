@@ -1,9 +1,9 @@
-import { Sidebar } from "components";
 import React from "react";
+import { Sidebar } from "components";
 import { useNavigate, useRoutes } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import { TextField, Button, Addclass } from 'components';
+import { Addclass, Editclass, Deluser } from 'components';
 
 const adminclass = () => {
 
@@ -18,6 +18,29 @@ const adminclass = () => {
     function openModal() {
       setIsOpen(true)
     }
+
+    const [isOpenEdit, setIsOpenEdit] = useState(false)
+  
+    function closeModalEdit() {
+      setIsOpenEdit(false)
+    }
+  
+    function openModalEdit() {
+      setIsOpenEdit(true)
+    }
+
+    const [isOpenDel, setIsOpenDel] = useState(false)
+  
+    function closeModalDel() {
+        setIsOpenDel(false)
+    }
+  
+    function openModalDel() {
+        setIsOpenDel(true)
+    }
+    
+    
+    
     return(
         <div className="flex">
             <Sidebar/>
@@ -47,12 +70,11 @@ const adminclass = () => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                <div className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
-
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
+                <div className="fixed inset-0 bg-opacity-25" />
+                </Transition.Child>
+                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 scale-95"
@@ -60,15 +82,83 @@ const adminclass = () => {
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel>
-                 <div><Addclass/></div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition>
+                >
+                    <Dialog.Panel>
+                    <div><Addclass/></div>
+                    </Dialog.Panel>
+                    </Transition.Child>
+                    </div>
+                </div>
+                </Dialog>
+            </Transition>
+
+            <Transition appear show={isOpenEdit} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModalEdit}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                <div className="fixed inset-0 bg-opacity-25" />
+                </Transition.Child>
+                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+                >
+                    <Dialog.Panel>
+                    <div><Editclass/></div>
+                    </Dialog.Panel>
+                    </Transition.Child>
+                    </div>
+                </div>
+                </Dialog>
+            </Transition>
+
+            <Transition appear show={isOpenDel} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModalDel}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                <div className="fixed inset-0 bg-opacity-25" />
+                </Transition.Child>
+                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+                >
+                    <Dialog.Panel>
+                    <div><Deluser/></div>
+                    </Dialog.Panel>
+                    </Transition.Child>
+                    </div>
+                </div>
+                </Dialog>
+            </Transition>
+
+
 
       
             <div className="pt-2 px-2 pl-2 w-full">
@@ -99,8 +189,8 @@ const adminclass = () => {
                     <td className="border border-slate-300 py-2">20</td>
                     <td className="border border-slate-300 py-2">Avaliable</td>
                     <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass");}}>View</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#fff41c] px-8" onClick={()=>{router("/editclass");}}>Edit</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5">Delete</button></td>
+                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#fff41c] px-8" onClick={openModalEdit}>Edit</button></td>
+                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5" onClick={openModalDel}>Delete</button></td>
                     </tr>
                     <tr>
                     <td className="border border-slate-300 py-2 text-center">2</td>

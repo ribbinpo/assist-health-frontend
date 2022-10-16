@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const navbar = () => {
     const navigate = useNavigate();
     return (
-        <div className='bg-red-800 p-3'>
+        <div className='bg-red-800 p-3 w-full'>
             <div className='flex justify-between'>
                 <div className='text-lg font-bold text-white flex-initial '>Assist Health </div>
                 <div className='flex flex-row'>

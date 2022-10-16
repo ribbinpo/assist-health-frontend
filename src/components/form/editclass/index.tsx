@@ -34,8 +34,7 @@ const editclass = () => {
     //setGender(e.target.value);
   }
   return (
-    <div className="flex">
-    <div><Sidebar/></div>
+    <div>
     <div className=' w-full justify-center'>
     <div className="flex justify-center items-center min-h-screen">
         <div className="flex flex-col gap-y-5 py-5 rounded-md px-10" style={{ backgroundColor: '#EAE9E9' }}>
@@ -62,7 +61,7 @@ const editclass = () => {
 
             <div className='grid gap-2 grid-cols-2'>
                 <div>
-                    <select id="starttime" name="starttime"  value={starttime} onChange={(e) => setclasstype(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
+                    <select id="starttime" name="starttime"  value={starttime} onChange={(e) => setstarttime(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
                         <option value="#" disabled selected>Start time</option>
                         <option value="08:00">08:00</option>
                         <option value="08:30">08:30</option>
@@ -95,7 +94,7 @@ const editclass = () => {
                     </select>
                 </div>
                 <div>
-                <select id="endtime" name="endtime"  value={endtime} onChange={(e) => setclasstype(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
+                <select id="endtime" name="endtime"  value={endtime} onChange={(e) => setendtime(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
                         <option value="#" disabled selected>End time</option>
                         <option value="08:00">08:00</option>
                         <option value="08:30">08:30</option>
