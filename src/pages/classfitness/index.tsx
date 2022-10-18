@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Classtoday from 'assets/images/classtoday.png'
 import { TextField, Button, Buttonbooking, Slotclasscardio, Slotclassstrength, Slotclasssflexlity, } from 'components';
 
+const classes = [
+    { id: 1, name: "BODYPUMP", start: "08:00", end: "09:00", quantity: 1, max: 20, },
+];
+
+
 const classfitness = () => {
     const navigate = useNavigate();
     return (
@@ -20,13 +25,9 @@ const classfitness = () => {
                     <div className="text-white">FLEXLITY</div> 
                 </div>
         </div>
-            
                     <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" quantity="1/20"/>
                     <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" quantity="5/20"/>
                     <Slotclasssflexlity slotclassname="SH`BAM~~~" time="17:00-18:00" quantity="0/20"/>
-
-
-                    
                      <div className="absolute right-0 p-8">
                         <button className="rounded-xl bg-[#D8D8D4] text-[#5E5454] shadow-md p-3 px-4" onClick={() => { navigate('/mybooking'); }}>My booking</button>
                      </div>

@@ -1,4 +1,4 @@
-import { Sidebar, Deluser, Edituser  } from "components";
+import { Sidebar, Deluser, Edituser, Adduser } from "components";
 import { useNavigate, useRoutes } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
@@ -26,6 +26,16 @@ const backofficeuser = () => {
   
     function openModalDel() {
         setIsOpenDel(true)
+    }
+
+    const [isOpenAdduser , setIsOpenAddUser] = useState(false)
+  
+    function closeModalAddUser() {
+      setIsOpenAddUser(false)
+    }
+  
+    function openModalAddUser() {
+      setIsOpenAddUser(true)
     }
 
     return (
@@ -97,12 +107,45 @@ const backofficeuser = () => {
                 </Dialog>
             </Transition>
 
+            <Transition appear show={isOpenAdduser} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModalAddUser}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                <div className="fixed inset-0 bg-opacity-25" />
+                </Transition.Child>
+                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+                >
+                    <Dialog.Panel>
+                    <div><Adduser/></div>
+                    </Dialog.Panel>
+                    </Transition.Child>
+                    </div>
+                </div>
+                </Dialog>
+            </Transition>
+
 
             <div className="w-full">
             <div className="flex justify-between">
             <div className="px-2 pt-5 text-2xl font-bold">All user</div>
             <div> <button className='rounded-xl bg-[#00B11C] shadow-md mt-4 ml-2 mr-2 px-4'> 
-            <div className="p-2 text-white" onClick={()=>{router("/adduser");}}> Add User + </div> 
+            <div className="p-2 text-white" onClick={openModalAddUser}> Add User + </div> 
             </button></div>
             </div>
             <div className="px-2 pt-5 pb-3">

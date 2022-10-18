@@ -12,4 +12,5 @@ export { Sidebar } from './sidebar';
 export { Addclass } from './addclass';
 export { Editclass } from './editclass';
 export { Deluser } from './deluser';
-export { Edituser } from './edituser'
+export { Edituser } from './edituser';
+export { Adduser } from './adduser';
