@@ -14,3 +14,4 @@ export { Editclass } from './editclass';
 export { Deluser } from './deluser';
 export { Edituser } from './edituser';
 export { Adduser } from './adduser';
+export { Sidebartrainer } from './sidebarbackofficetrainer';

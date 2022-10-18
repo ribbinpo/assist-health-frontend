@@ -1,11 +1,8 @@
 import react from "react";
 import { Sidebar } from 'components';
-import Logo from 'assets/images/Logo.png';
 import User from 'assets/images/user.png';
-import Classicon from 'assets/images/classicon.png';
-import Exercise from 'assets/images/exerciseicon.png';
-import Logout from 'assets/images/logout.png';
-import Dashboardicon from 'assets/images/dashboardicon.png'
+
+
 
 
 const backofficeAdmin = () => {

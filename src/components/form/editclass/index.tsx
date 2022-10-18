@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import { Sidebar } from 'components';
 import { TextField, Button } from 'components';
-import Logo from 'assets/images/Logo.png'
 import { useNavigate } from 'react-router-dom';
-import { Country } from 'assets/data/country';
 import Editclass from 'assets/images/editclass.png';
 
 
 
 
 const editclass = () => {
+ 
   const navigate = useNavigate();
   const [nameclass, setnameclass] = useState('');
   const [classtype, setclasstype] = useState('');
+  const [date, setdate] = useState('');
   const [starttime, setstarttime] = useState('');
   const [endtime, setendtime] = useState('');
-  const [quality, setquality] = useState('');
+  const [limit, setlimit] = useState('');
   const [status, setstatus] = useState('');
   
 
@@ -23,24 +22,34 @@ const editclass = () => {
     e.preventDefault();
     console.log(nameclass);
     console.log(classtype);
+    console.log(date);
     console.log(starttime);
     console.log(endtime);
-    console.log(quality);
+    console.log(limit);
     console.log(status);
 
+    const editclass = {
+    nameclass: nameclass,
+    classtype: classtype,
+    date: date,
+    starttime: starttime,
+    endtime: endtime,
+    limit: limit,
+    status: status,
+    }
+    console.log(editclass);
 
   };
-  const editclass = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //setGender(e.target.value);
-  }
+
   return (
-    <div>
+    <form onSubmit={onSubmit}>
     <div className=' w-full justify-center'>
     <div className="flex justify-center items-center min-h-screen">
         <div className="flex flex-col gap-y-5 py-5 rounded-md px-10" style={{ backgroundColor: '#EAE9E9' }}>
           <div className='flex iteams-center'>
-            <img src={ Editclass } className="w-20 h-20" />
-            <h1 className='text-5xl ml-5 pt-6'>Edit Class</h1>
+          <img src={ Editclass } className="w-20 h-20" />
+          <h1 className='text-5xl ml-5 pt-6'>Edit Class</h1>
+
 
           </div>
           
@@ -48,21 +57,21 @@ const editclass = () => {
             <div className='grid gap-2 grid-cols-2'>
                 <div>
                     <select id="classtype" name="type" value={classtype} onChange={(e) => setclasstype(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                        <option value="None" disabled selected>Type</option>
+                        <option value="type">Type</option>
                         <option value="cardio">Cardio</option>
                         <option value="strength">Strength</option>
                         <option value="flexliity">Flexlity</option>
                     </select>
                 </div>
                 <div>
-                    <div className='w-full'><input type="date"className="form-input rounded-md border-none p-3  w-full"/></div>
+                    <div className='w-full'><input type="date" value={date} onChange={(e) => setdate(e.target.value)} className="form-input rounded-md border-none p-3  w-full"/></div>
                 </div>
             </div>
 
             <div className='grid gap-2 grid-cols-2'>
                 <div>
                     <select id="starttime" name="starttime"  value={starttime} onChange={(e) => setstarttime(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                        <option value="#" disabled selected>Start time</option>
+                        <option value="starttime">Start time</option>
                         <option value="08:00">08:00</option>
                         <option value="08:30">08:30</option>
                         <option value="09:00">09:00</option>
@@ -95,7 +104,7 @@ const editclass = () => {
                 </div>
                 <div>
                 <select id="endtime" name="endtime"  value={endtime} onChange={(e) => setendtime(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                        <option value="#" disabled selected>End time</option>
+                        <option value="endtime">End time</option>
                         <option value="08:00">08:00</option>
                         <option value="08:30">08:30</option>
                         <option value="09:00">09:00</option>
@@ -128,23 +137,23 @@ const editclass = () => {
             </div>
             <div className='grid gap-2 grid-cols-2'>
                 <div>
-                <TextField placeholder="quality" value={quality} onChange={(e) => setquality(e.target.value)}/>
+                <TextField placeholder="Limit" value={limit} onChange={(e) => setlimit(e.target.value)}/>
                 </div>
                 <div>
                 <select id="status" name="status" value={status} onChange={(e) => setstatus(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                        <option value="" disabled selected>Status</option>
+                        <option value="status">Status</option>
                         <option value="avaliable">Avaliable</option>
                         <option value="unavaliable">Unavaliable</option>
                     </select>
                 </div>
             </div>
             <div className='pt-6 pl-80' onClick={() => { navigate('/adminclass'); }}>
-            <Button buttonName="Done" />
+            <Button buttonName="Add class"/>
             </div>
         </div>
         </div>
         </div>
-    </div>
+        </form>
     
   );
 }

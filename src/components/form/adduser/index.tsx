@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { Sidebar } from 'components';
 import { TextField, Button } from 'components';
 import { useNavigate } from 'react-router-dom';
 import { Country } from 'assets/data/country';
 import Adduser from 'assets/images/adduser.png';
-
-
 
 
 const adduser = () => {
@@ -21,8 +18,8 @@ const adduser = () => {
   const [blood, setBlood] = useState('');
   const [country,setConntry] = useState('');
   const [weight, setWeight] = useState('');
-  const [height, setheight] = useState('');
-  const [gender, setGender]  = useState('male');
+  const [height, setHeight] = useState('');
+  const [gender, setGender]  = useState('');
   const [phonenumber, setPhonenumber] = useState('');
   
 
@@ -35,25 +32,29 @@ const adduser = () => {
     console.log(firstname);
     console.log(lastname);
     console.log(birthday);
-    console.log(idcard)
+    console.log(idcard);
+    console.log(gender);
     console.log(blood);
     console.log(country);
     console.log(weight);
-    console.log(gender);
+    console.log(height);
     console.log(phonenumber);
 
     const adduser = {
-      username: username,
-      password: password,
-      typr: type,
-      email: email,
-      birthday: birthday,
-      gender: gender,
-      blood:blood,
-      country:country,
-      weight:weight,
-      height:height,
-      phonenumber:phonenumber,
+    username: username,
+    password: password,
+    type: type,
+    email: email,
+    firstname: firstname,
+    lastname: lastname,
+    birthday: birthday,
+    idcard: idcard,
+    gender: gender,
+    blood:blood,
+    country:country,
+    weight:weight,
+    height:height,
+    phonenumber:phonenumber,
     }
     console.log(adduser);
 
@@ -91,7 +92,7 @@ const adduser = () => {
               <div><TextField placeholder="FirstName" value={firstname} onChange={(e) => setFirstname(e.target.value)} /></div>
               <div><TextField placeholder="LastName" value={lastname} onChange={(e) => setLastname(e.target.value)} /></div>
             </div>
-            <TextField placeholder="Birthday" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
+            <input type="date"className="form-input rounded-md border-none p-3  w-full " value={birthday} onChange={(e) => setBirthday(e.target.value)}/>
             <TextField placeholder="ID-Card/Passport" value={idcard} onChange={(e) => setIdcard(e.target.value)} />
             
             <div className='grid gap-4 grid-cols-4' onChange={onChangeGender}>
@@ -122,10 +123,10 @@ const adduser = () => {
                   {Country.map((item, index) => <option key={index} value={item}>{item}</option>)}
                 </select></div>
                 <div><TextField placeholder="Weight(KG)" value={weight} onChange={(e) => setWeight(e.target.value)} /></div>
-                <div><TextField placeholder="Height(CM)" value={height} onChange={(e) => setheight(e.target.value)} /></div>
+                <div><TextField placeholder="Height(CM)" value={height} onChange={(e) => setHeight(e.target.value)} /></div>
             </div>
             <TextField placeholder="Phone Number" value={phonenumber} onChange={(e) => setPhonenumber(e.target.value)}/>
-            <div className='pt-6 pl-80' onClick={() => { navigate('/adduser'); }}>
+            <div className='pt-6 pl-80' onClick={() => { navigate('/user'); }}>
             <Button buttonName="Confirm" />
             </div>
         </div>

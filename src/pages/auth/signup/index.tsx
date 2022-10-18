@@ -32,25 +32,29 @@ const authSignup = () => {
     console.log(firstname);
     console.log(lastname);
     console.log(birthday);
-    console.log(idcard)
+    console.log(idcard);
+    console.log(gender);
     console.log(blood);
     console.log(country);
     console.log(weight);
-    console.log(gender);
+    console.log(height);
     console.log(phonenumber);
 
     const signup = {
-      username: username,
-      password: password,
-      confirmpassword: confirmpassword,
-      email: email,
-      birthday: birthday,
-      gender: gender,
-      blood:blood,
-      country:country,
-      weight:weight,
-      height:height,
-      phonenumber:phonenumber,
+    username: username,
+    password: password,
+    confirmpassword: confirmpassword,
+    email: email,
+    firstname: firstname,
+    lastname: lastname,
+    birthday: birthday,
+    idcard: idcard,
+    gender: gender,
+    blood:blood,
+    country:country,
+    weight:weight,
+    height:height,
+    phonenumber:phonenumber,
     }
     console.log(signup);
 

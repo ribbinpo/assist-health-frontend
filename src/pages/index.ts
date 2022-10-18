@@ -8,3 +8,4 @@ export * from './mytrainer'
 export * from './account';
 export * from './trainerschdule';
 export * from './backoffice';
+export * from './backofficetrainer';
