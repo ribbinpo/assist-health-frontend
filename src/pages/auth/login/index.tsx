@@ -13,7 +13,10 @@ const authLogin = () => {
     e.preventDefault();
     console.log(username);
     console.log(password);
-  }
+
+    const user = {username:username, password:password}
+    console.log(user);
+    }
   return (
     <div className="flex justify-center items-center min-h-screen shadow-md">
       <form onSubmit={onSubmit}>

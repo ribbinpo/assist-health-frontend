@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
-import { Sidebar } from 'components';
 import { TextField, Button } from 'components';
-import Logo from 'assets/images/Logo.png'
 import { useNavigate } from 'react-router-dom';
 import { Country } from 'assets/data/country';
 import Edit from 'assets/images/edit.png';
-
-
 
 
 const edituser = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmpassword, setConfirmpassword] = useState('');
+  const [type, setType] = useState('');
   const [email, setEmail] = useState('');
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -22,36 +18,50 @@ const edituser = () => {
   const [blood, setBlood] = useState('');
   const [country,setConntry] = useState('');
   const [weight, setWeight] = useState('');
-  const [height, setheight] = useState('');
-  const [gender, setGender]  = useState('male');
+  const [height, setHeight] = useState('');
+  const [gender, setGender]  = useState('');
   const [phonenumber, setPhonenumber] = useState('');
-  
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(username);
-    console.log(password);
-    console.log(confirmpassword);
-    console.log(email);
-    console.log(firstname);
-    console.log(lastname);
-    console.log(birthday);
-    console.log(idcard)
-    console.log(blood);
-    console.log(country);
-    console.log(weight);
-    console.log(gender);
-    console.log(phonenumber);
 
 
-  };
-  const edituser = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setGender(e.target.value);
+const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log(username);
+  console.log(password);
+  console.log(type);
+  console.log(email);
+  console.log(firstname);
+  console.log(lastname);
+  console.log(birthday);
+  console.log(idcard)
+  console.log(blood);
+  console.log(country);
+  console.log(weight);
+  console.log(gender);
+  console.log(phonenumber);
+
+  const signup = {
+    username: username,
+    password: password,
+    type: type,
+    email: email,
+    birthday: birthday,
+    gender: gender,
+    blood:blood,
+    country:country,
+    weight:weight,
+    height:height,
+    phonenumber:phonenumber,
+  }
+  console.log(signup);
+
+
+};
+  const onChangeGender = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setGender(e.target.value);
   }
   return (
-    <div className="flex">
-    <div><Sidebar/></div>
-    <div className=' w-full justify-center'>
+    <div>
+    <div className=' w-full justify-center items-center min-h-screen'>
     <div className="flex justify-center items-center min-h-screen pt-2">
         <div className="flex flex-col gap-y-5 py-5 rounded-md px-10" style={{ backgroundColor: '#EAE9E9' }}>
           <div className='flex iteams-center'>
@@ -65,7 +75,7 @@ const edituser = () => {
               <div className='w-full'><TextField placeholder="Password" value={password} hidden={true} onChange={(e) => setPassword(e.target.value)} /></div>
               <div >
           <select id="type" name="type" className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                  <option value="" disabled selected>Type</option>
+                  <option value="type" disabled selected>Type</option>
                   <option value="A+">Admin</option>
                   <option value="A-">Trainer</option>
                   <option value="B+">User</option>
@@ -80,7 +90,7 @@ const edituser = () => {
             <TextField placeholder="Birthday" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
             <TextField placeholder="ID-Card/Passport" value={idcard} onChange={(e) => setIdcard(e.target.value)} />
             
-            <div className='grid gap-4 grid-cols-4'>
+            <div className='grid gap-4 grid-cols-4' onChange={onChangeGender}>
               <div><p className='text-[#B0B0B0]'>Gender</p></div>
               <div><input type="radio" name="gender" value="male" className="rounded-xl "></input>
               <label className='text-[#B0B0B0] pl-2'>Male</label></div>
@@ -108,7 +118,7 @@ const edituser = () => {
                   {Country.map((item, index) => <option key={index} value={item}>{item}</option>)}
                 </select></div>
                 <div><TextField placeholder="Weight(KG)" value={weight} onChange={(e) => setWeight(e.target.value)} /></div>
-                <div><TextField placeholder="Height(CM)" value={height} onChange={(e) => setheight(e.target.value)} /></div>
+                <div><TextField placeholder="Height(CM)" value={height} onChange={(e) => setHeight(e.target.value)} /></div>
             </div>
             <TextField placeholder="Phone Number" value={phonenumber} onChange={(e) => setPhonenumber(e.target.value)}/>
             <div className='pt-6 pl-80' onClick={() => { navigate('/user'); }}>

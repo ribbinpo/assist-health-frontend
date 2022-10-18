@@ -1,7 +1,7 @@
-import { Sidebar } from "components";
-import React, { useState } from "react";
-import { TextField, Button, Buttoncancel, Topictrainer,Bottontrainer } from 'components';
+import { Sidebar, Deluser, Edituser  } from "components";
 import { useNavigate, useRoutes } from 'react-router-dom';
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
 
 
 const backofficeuser = () => {
@@ -17,10 +17,87 @@ const backofficeuser = () => {
     function openModalEditUser(){
         setIsOpenEditUser(true)
     }
-    
+
+    const [isOpenDel, setIsOpenDel] = useState(false)
+  
+    function closeModalDel() {
+        setIsOpenDel(false)
+    }
+  
+    function openModalDel() {
+        setIsOpenDel(true)
+    }
+
     return (
+        
         <div className="flex">
             <Sidebar/>
+            <Transition appear show={isOpenEditUser} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModalEditUser}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                <div className="fixed inset-0 bg-opacity-25" />
+                </Transition.Child>
+                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+                >
+                    <Dialog.Panel>
+                    <div><Edituser/></div>
+                    </Dialog.Panel>
+                    </Transition.Child>
+                    </div>
+                </div>
+                </Dialog>
+            </Transition>
+            <Transition appear show={isOpenDel} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModalDel}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                <div className="fixed inset-0 bg-opacity-25" />
+                </Transition.Child>
+                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+                >
+                    <Dialog.Panel>
+                    <div><Deluser/></div>
+                    </Dialog.Panel>
+                    </Transition.Child>
+                    </div>
+                </div>
+                </Dialog>
+            </Transition>
+
+
             <div className="w-full">
             <div className="flex justify-between">
             <div className="px-2 pt-5 text-2xl font-bold">All user</div>
@@ -54,8 +131,8 @@ const backofficeuser = () => {
                     <td className="border border-slate-300 py-2">Admin</td>
                     <td className="border border-slate-300 py-2">10/10/2022</td>
                     <td className="border border-slate-300 py-2">Avaliable</td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/edituser");}}>Edit</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5">Delete</button></td>
+                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={openModalEditUser}>Edit</button></td>
+                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5" onClick={openModalDel}>Delete</button></td>
                     </tr>
                     <tr>
                     <td className="border border-slate-300 py-2 ">2</td>
