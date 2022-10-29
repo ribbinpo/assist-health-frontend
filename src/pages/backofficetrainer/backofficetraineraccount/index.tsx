@@ -4,7 +4,7 @@ import { TextField, Button } from 'components';
 import Logo from 'assets/images/Logo.png'
 import { useNavigate } from 'react-router-dom';
 import { Country } from 'assets/data/country';
-
+import personal from 'assets/images/personal.png';
 
 
 
@@ -25,6 +25,9 @@ import { Country } from 'assets/data/country';
   const [height, setHeight] = useState('');
   const [gender, setGender]  = useState('');
   const [phonenumber, setPhonenumber] = useState('');
+  const [professional, setProfessional] = useState('');
+  const [specialskills, setSpecialskills] = useState('');
+  const [certificate, setCertificate] = useState('');
   
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +46,10 @@ import { Country } from 'assets/data/country';
     console.log(weight);
     console.log(height);
     console.log(phonenumber);
-  
+    console.log(professional);
+    console.log(specialskills);
+    console.log(certificate);
+
     const signup = {
     username: username,
     password: password,
@@ -59,6 +65,9 @@ import { Country } from 'assets/data/country';
     weight:weight,
     height:height,
     phonenumber:phonenumber,
+    professional: professional,
+    specialskills: specialskills,
+    certificate: certificate,
     }
     console.log(signup);
 
@@ -73,17 +82,15 @@ import { Country } from 'assets/data/country';
 
         <div className="flex">
         <Sidebartrainer/>
-        <form onSubmit={onSubmit} className="flex justify-center items-center min-h-screen pt-8 pb-8 ">
+        <div className=" w-full">
+        <form onSubmit={onSubmit} className="flex justify-center items-center min-h-screen pt-8 pb-8">
         <div className="flex flex-col gap-y-5 py-20 rounded-md px-8" style={{ backgroundColor: '#EAE9E9' }}>
           <div className='flex iteams-center'>
-            <img src={ Logo } className="w-28" />
-              <h1 className='text-5xl ml-5 pt-6'>SIGN UP</h1>
-        </div>
+            <img src={ personal } className="w-28" />
+              <h1 className='text-5xl ml-5 pt-6'>Trainer Account</h1>
+          </div>
             <TextField placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <div className='grid gap-2 grid-cols-2'>
-              <div className='w-full'><TextField placeholder="Password" value={password} hidden={true} onChange={(e) => setPassword(e.target.value)} /></div>
-                <div><TextField placeholder="Confirm Password" value={confirmpassword} hidden={true} onChange={(e) => setConfirmpassword(e.target.value)} /></div>
-            </div>
+            <div className='w-full'><TextField placeholder="Password" value={password} hidden={true} onChange={(e) => setPassword(e.target.value)} /></div>
             <TextField placeholder="Email" value={email}  onChange={(e) => setEmail(e.target.value)} />
             <div className='grid gap-4 grid-cols-2 '>
               <div><TextField placeholder="FirstName" value={firstname} onChange={(e) => setFirstname(e.target.value)} /></div>
@@ -123,11 +130,15 @@ import { Country } from 'assets/data/country';
                 <div><TextField placeholder="Height(CM)" value={height} onChange={(e) => setHeight(e.target.value)} /></div>
             </div>
             <TextField placeholder="Phone Number" value={phonenumber} onChange={(e) => setPhonenumber(e.target.value)}/>
-            <div className='pt-6 pl-80 ' onClick={() => {  navigate('/auth/signup'); }}>
-              <Button buttonName="SIGN UP" />
+            <div><TextField placeholder="professional" value={professional} onChange={(e) => setProfessional(e.target.value)} /></div>
+            <div><TextField placeholder="special skills" value={specialskills} onChange={(e) => setSpecialskills(e.target.value)} /></div>
+            <div><TextField placeholder="certificate" value={certificate} onChange={(e) => setCertificate(e.target.value)} /></div>
+            <div className='pt-6 pl-80 ' onClick={() => {  navigate('/traineraccount'); }}>
+              <Button buttonName="Confrim" />
             </div>
         </div>
     </form>
+    </div>
        
         </div>
     

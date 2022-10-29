@@ -23,7 +23,7 @@ const sidebartrainer = () => {
                     <ul className="pt-2 pb-4 space-y-1 text-sm">
                         <li className="rounded-sm">
                             <a
-                                href="/admin"
+                                href="/traineraccount"
                                 className="flex items-center p-2 space-x-3 rounded-md"
                             >
                             <div className="flex items-center">
@@ -35,24 +35,24 @@ const sidebartrainer = () => {
                         </li>
                         <li className="rounded-sm">
                             <a
-                                href="/user"
+                                href="/trainermangeschedule"
                                 className="flex items-center p-2 space-x-3 rounded-md"
                             >
                             <div className="flex items-center">
                             <img src={ Schedule } className="w-10 pr-2" />
-                            <span>User</span>
+                            <span>Mange Schedule</span>
                             </div>   
                                 
                             </a>
                         </li>
                         <li className="rounded-sm">
                             <a
-                                href="/adminclass"
+                                href="/trainerschedule"
                                 className="flex items-center p-2 space-x-3 rounded-md"
                             >
                             <div className="flex items-center">
                             <img src={ MangeSchedule } className="w-10 pr-2" />
-                            <span>Class</span>
+                            <span>Booking Schedule</span>
                             </div>   
                             </a>
                         </li>

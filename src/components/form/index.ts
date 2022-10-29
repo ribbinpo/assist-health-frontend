@@ -15,3 +15,5 @@ export { Deluser } from './deluser';
 export { Edituser } from './edituser';
 export { Adduser } from './adduser';
 export { Sidebartrainer } from './sidebarbackofficetrainer';
+export { Addtime } from './addtime';
+export { Edittime } from './edittime'

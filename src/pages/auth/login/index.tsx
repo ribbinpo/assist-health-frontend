@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import jwtDecode from 'jwt-decode';
 import { TextField, Button } from 'components';
 import Logo from 'assets/images/Logo.png';
+import axios from 'axios';
 
 const authLogin = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(username);
@@ -16,7 +17,20 @@ const authLogin = () => {
 
     const user = {username:username, password:password}
     console.log(user);
-    }
+    
+
+     axios.post("http://localhost:8000/auth/signin",user)
+    .then((response) => {
+      const access_token = response?.data?.access_token;
+      console.log(access_token)
+      const decoded = jwtDecode(access_token)
+      console.log(decoded)
+      console.log("success")
+    })
+    };
+
+    
+
   return (
     <div className="flex justify-center items-center min-h-screen shadow-md">
       <form onSubmit={onSubmit}>
