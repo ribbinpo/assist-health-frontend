@@ -15,13 +15,13 @@ const classfitness = () => {
             <div><img src={Classtoday} className="w-full pt-3" /></div>
             <div className="grid gap-2 grid-cols-4 pt-3 px-4">
                 <div className="text-5xl ml-5 font-bold">CLASS’s TODAY</div>
-                <div className="bg-[#F17474] uppercase rounded-xl flex justify-center items-center">
+                <div className="bg-[#F17474] uppercase rounded-xl flex justify-center items-center  transition ease-in-out   hover:text-6xl hover:bg-red-500 ">
                     <div className="text-white">CARDIO</div> 
                 </div>
-                <div className="bg-[#D0E495] uppercase rounded-xl flex justify-center items-center">
+                <div className="bg-[#D0E495] uppercase rounded-xl flex justify-center items-center transition ease-in-out   hover:text-6xl hover:bg-lime-400 ">
                     <div className="text-white">STRENGTH</div> 
                 </div>
-                <div className="bg-[#74B5F1] uppercase rounded-xl flex justify-center items-center">
+                <div className="bg-[#74B5F1] uppercase rounded-xl flex justify-center items-center transition ease-in-out   hover:text-6xl hover:bg-sky-600">
                     <div className="text-white">FLEXLITY</div> 
                 </div>
         </div>
