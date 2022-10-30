@@ -48,7 +48,7 @@ const authLogin = () => {
               </div>
             </div>
             <Button buttonName="Login"/>
-          <div className='text-right underline cursor-pointer text-[#B0B0B0]' onClick={() => { navigate('/auth/signup'); }}>
+          <div className='text-right underline cursor-pointer text-[#B0B0B0] ' onClick={() => { navigate('/auth/signup'); }}>
             SIGN UP
           </div>
         </div>
