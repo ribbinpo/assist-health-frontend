@@ -4,11 +4,16 @@ import jwtDecode from 'jwt-decode';
 import { TextField, Button } from 'components';
 import Logo from 'assets/images/Logo.png';
 import axios from 'axios';
+import { useAccountStore } from 'store';
 
-const authLogin = () => {
+
+function authLogin() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const token = useAccountStore((state) => state.token);
+  const setToken = useAccountStore((state) => state.setToken);
+
   
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,12 +27,19 @@ const authLogin = () => {
      axios.post("http://localhost:8000/auth/signin",user)
     .then((response) => {
       const access_token = response?.data?.access_token;
-      console.log(access_token)
+      setToken(access_token);
+      // console.log(access_token)
       const decoded = jwtDecode(access_token)
       console.log(decoded)
       console.log("success")
+
+
     })
-    };
+    
+    console.log(token); 
+    
+    
+  };
 
     
 
