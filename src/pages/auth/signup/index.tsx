@@ -61,6 +61,7 @@ const authSignup = () => {
     await axios.post("http://localhost:8000/auth/signup",signup)
     .then(res => {
       console.log("success");
+      navigate('/auth/login')
     })
   };
   const onChangeGender = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -149,9 +150,10 @@ const authSignup = () => {
           <select
             id="blood"
             name="blood"
+            value={blood}
             className="form-input rounded-md border-none p-3 text-[#595757] w-full"
             onChange={(e) => setBlood(e.target.value)}>
-            <option value="">Blood Type</option>
+            <option value="">blood Type</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
             <option value="B+">B+</option>
@@ -165,6 +167,7 @@ const authSignup = () => {
           <select
             id="country"
             name="country"
+            value={country}
             className="form-input rounded-md border-none p-3 text-[#595757]"
             onChange={(e) => setConntry(e.target.value)}>
             <option value="country">Country</option>

@@ -5,6 +5,8 @@ import { TextField, Button } from 'components';
 import Logo from 'assets/images/Logo.png';
 import axios from 'axios';
 import { useAccountStore } from 'store';
+import { getRoles } from '@testing-library/react';
+
 
 
 function authLogin() {
@@ -29,15 +31,37 @@ function authLogin() {
       const access_token = response?.data?.access_token;
       setToken(access_token);
       // console.log(access_token)
-      const decoded = jwtDecode(access_token)
-      console.log(decoded)
+      const decoded = jwtDecode(access_token) as {[key:string]:string}
+
+      console.log(response.data);
+      
+      console.log(decoded.roles)
       console.log("success")
+
+      if (!access_token) {
+        navigate('/auth/login')
+      }else if (access_token && decoded.roles==="ADMIN") {
+        navigate('/admin')
+      }else if (access_token && decoded.roles==="USER") {
+        navigate('/dashboard')
+      }else if (access_token && decoded.roles==="TRAINER") {
+        navigate('/dashboard')
+      }
+
+      // else if (access_token && role == "user"){
+      //   navigate('/dashboard');
+      // } 
+      // else if (access_token && role == "admin"){
+      //   navigate('/admin');
+      // }
+
 
 
     })
     
     console.log(token); 
-    
+
+  
     
   };
 
