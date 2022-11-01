@@ -4,15 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import { Country } from 'assets/data/country';
 import Edit from 'assets/images/edit.png';
 
+interface Props {
+  currentUser: any
+}
 
-const edituser = () => {
+const edituser: React.FC<Props> = ({currentUser}) => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [type, setType ] = useState('');
-  const [email, setEmail] = useState('');
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
+  const [username, setUsername] = useState(currentUser.username);
+  const [password, setPassword] = useState(currentUser.password);
+  const [type, setType ] = useState(currentUser.role);
+  const [email, setEmail] = useState(currentUser.email);
+  const [firstname, setFirstname] = useState(currentUser.firstName);
+  const [lastname, setLastname] = useState(currentUser.lastName);
   const [birthday, setBirthday] = useState('');
   const [idcard, setIdcard] = useState('');
   const [gender, setGender]  = useState('');
@@ -22,6 +25,7 @@ const edituser = () => {
   const [height, setHeight] = useState('');
   const [phonenumber, setPhonenumber] = useState('');
 
+  console.log(currentUser);
 
 const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();

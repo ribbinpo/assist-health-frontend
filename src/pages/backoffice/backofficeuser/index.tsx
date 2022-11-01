@@ -10,6 +10,7 @@ const backofficeuser = () => {
 
     const router = useNavigate();
     const [data, setData] = useState([]);
+    const [curentEditUesr , setCurentEditUesr] = useState({});
 
     const [isOpenEditUser, setIsOpenEditUser] = useState(false)
 
@@ -17,9 +18,15 @@ const backofficeuser = () => {
         setIsOpenEditUser(false)
     }
 
-    function openModalEditUser() {
+    // function openModalEditUser() {
+    //     setIsOpenEditUser(true)
+    // }
+
+    function openModalEditUser(currentUser: any) {
+        setCurentEditUesr(currentUser);
         setIsOpenEditUser(true)
-    }
+        
+   }
 
     const [isOpenDel, setIsOpenDel] = useState(false)
 
@@ -92,7 +99,7 @@ const backofficeuser = () => {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel>
-                                    <div><Edituser /></div>
+                                    <div><Edituser currentUser={curentEditUesr} /></div>
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
@@ -200,7 +207,7 @@ const backofficeuser = () => {
                                         <td className="border border-slate-300 py-2">{prop.role}</td>
                                         <td className="border border-slate-300 py-2">{prop.createdAt}</td>
                                         <td className="border border-slate-300 py-2">Avaliable</td>
-                                        <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={openModalEditUser}>Edit</button></td>
+                                        <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={() => openModalEditUser(prop)}>Edit</button></td>
                                         <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5" onClick={openModalDel}>Delete</button></td>
                                     </tr>
                                
