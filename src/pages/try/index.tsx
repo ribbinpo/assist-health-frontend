@@ -1,20 +1,8 @@
-import React, { useState }  from "react"
-import {  Button } from 'components';
-import { useNavigate } from 'react-router-dom';
-import { Time } from 'assets/data/time';
-import Addtime from 'assets/images/time.png'
+import React from "react";
 
 
-
-    const addtime = () => {
-
-    
-    return(
-         <div>
-            
-         </div>
-
-    );
+const test = () => {
+ return (
+    <div>pkdkpkd</div>
+ );
 }
-
-export { addtime as Addtime }
