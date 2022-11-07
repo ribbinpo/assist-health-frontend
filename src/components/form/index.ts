@@ -17,4 +17,5 @@ export { Adduser } from './adduser';
 export { Sidebartrainer } from './sidebarbackofficetrainer';
 export { Addtime } from './addtime';
 export { Edittime } from './edittime';
-export { LabelForm } from './labelform'
+export { LabelForm } from './labelform';
+export { Confirmbooking } from './confirmbooking';

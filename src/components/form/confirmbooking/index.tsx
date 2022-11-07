@@ -4,9 +4,9 @@ import run from 'assets/images/running-man.png'
 import Clock from 'assets/images/clock.png';
 import User from 'assets/images/user.png';
 
-const test = () => {
+const confirmbooking = () => {
  return (
-   <div className="flex justify-center items-center min-h-screen shadow-md">
+   <div className="flex justify-center items-center min-h-screen ">
    <form>
      <div className="rounded-md bg-[#EAE9E9]">
       <div className="flex justify-start py-5 pl-2 pr-96 ">
@@ -44,4 +44,4 @@ const test = () => {
  );
 }
 
-export { test as Test };
+export { confirmbooking as Confirmbooking };
