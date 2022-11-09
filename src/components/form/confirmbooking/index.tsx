@@ -3,9 +3,55 @@ import Booking from 'assets/images/booking.png'
 import run from 'assets/images/running-man.png'
 import Clock from 'assets/images/clock.png';
 import User from 'assets/images/user.png';
+import { Fragment, useEffect, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react'
+import { Sucessbooking } from 'components';
 
 const confirmbooking = () => {
+
+  const [isOpenSucessBooking, setIsOpenSucessBooking] = useState(false)
+
+  function closeModalSucessBooking() {
+      setIsOpenSucessBooking(false)
+  }
+  function openModalSucessBooking() {
+      setIsOpenSucessBooking(true)
+  }
  return (
+    <div>
+        <Transition appear show={isOpenSucessBooking} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModalSucessBooking}>
+            <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+            >
+                <div className="fixed inset-0 bg-opacity-25" />
+            </Transition.Child>
+            <div className="fixed inset-0 overflow-y-auto">
+                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                    >
+                        <Dialog.Panel>
+                            <div><Sucessbooking /></div>
+                        </Dialog.Panel>
+                    </Transition.Child>
+                </div>
+            </div>
+        </Dialog>
+      </Transition>
+
    <div className="flex justify-center items-center min-h-screen ">
    <form>
      <div className="rounded-md bg-[#EAE9E9]">
@@ -31,8 +77,8 @@ const confirmbooking = () => {
                     CANCEL
                 </div>
             </button></div>
-            <div><button className='rounded-xl flex  justify-center  bg-[#CC1B32] shadow-md mt-2 mb-2 w-39 mr-5'>
-                <div className='text-lg text-white px-14 py-3'>
+            <div><button className='rounded-xl flex  justify-center  bg-[#CC1B32] shadow-md mt-2 mb-2 w-39 mr-5' onClick={openModalSucessBooking}>
+                <div className='text-lg text-white px-14 py-3' onClick={openModalSucessBooking}>
                     BOOK CLASS
                 </div>
             </button></div>
@@ -40,6 +86,7 @@ const confirmbooking = () => {
      </div>
      
    </form>
+ </div>
  </div>
  );
 }

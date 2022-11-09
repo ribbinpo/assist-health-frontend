@@ -19,3 +19,4 @@ export { Addtime } from './addtime';
 export { Edittime } from './edittime';
 export { LabelForm } from './labelform';
 export { Confirmbooking } from './confirmbooking';
+export { Sucessbooking } from './sucessbooking';

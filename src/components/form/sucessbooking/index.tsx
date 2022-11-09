@@ -1,7 +1,7 @@
 import React from "react";
 import Checked from "assets/images/checked.png"
 
-const test = () => {
+const sucessbooking = () => {
  return (
    <div className="flex justify-center items-center min-h-screen shadow-md">
    <form>
@@ -18,4 +18,4 @@ const test = () => {
  );
 }
 
-export { test as Test };
+export { sucessbooking as Sucessbooking };

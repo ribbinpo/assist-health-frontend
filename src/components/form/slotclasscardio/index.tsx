@@ -1,5 +1,5 @@
 import react  from "react";
-import { Buttonbooking, Confirmbooking } from 'components';
+import { Buttonbooking, Confirmbooking, Sucessbooking } from 'components';
 import User from 'assets/images/user.png';
 import Clock from 'assets/images/clock.png';
 import Group from 'assets/images/group.png';
@@ -18,6 +18,10 @@ const slotclasscardio = ({slotclassname, time, name}: any) => {
     function openModalConfirmBooking() {
         setIsOpenConfirmBooking(true)
     }
+
+   
+
+
     return (
         <div>
         <Transition appear show={isOpenConfirmBooking} as={Fragment}>
