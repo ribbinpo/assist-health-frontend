@@ -16,6 +16,7 @@ const addclass = () => {
   const [endtime, setendtime] = useState('');
   const [limit, setlimit] = useState('');
   const [status, setstatus] = useState('');
+  const [room, setroom ] = useState('');
   
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,6 +28,7 @@ const addclass = () => {
     console.log(endtime);
     console.log(limit);
     console.log(status);
+    console.log(room)
 
     const addclass = {
     nameclass: nameclass,
@@ -94,6 +96,7 @@ const addclass = () => {
                     </select>
                 </div>
             </div>
+            <TextField placeholder="Room" value={room} onChange={(e) => setnameclass(e.target.value)}/>
             <div className='pt-6 pl-80' onClick={() => { navigate('/adminclass'); }}>
             <Button buttonName="Add class"/>
             </div>

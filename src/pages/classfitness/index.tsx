@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Classtoday from 'assets/images/classtoday.png'
 import { Slotclasscardio, Slotclassstrength, Slotclasssflexlity, } from 'components';
 import Arrow from 'assets/images/arrow.png'
 import Booking from 'assets/images/booking.png'
+import axios from "axios";
+
+enum CLASSTYPE {
+    ALL,
+    CARDIO,
+    STRENGTH,
+    FLEXLITY
+  }
 
 const classes = [
     { id: 1, name: "BODYPUMP", start: "08:00", end: "09:00", quantity: 1, max: 20, },
@@ -12,6 +20,37 @@ const classes = [
 
 const classfitness = () => {
     const navigate = useNavigate();
+    
+    const [items, setItems] = useState([])
+    const [filteredItems, setFilteredItems] = useState([])
+    const [currentClassType, setCurrentClassType] = useState(CLASSTYPE.ALL) 
+
+    useEffect(() => {
+        const getItems = async () => {
+            const response = await axios.get("http://localhost:8000/classes/getAll")
+            const data = response.data
+            setItems(data)
+        }
+        getItems()
+    }, [])
+
+    useEffect(() => {
+        console.log(`currentClassType: ${currentClassType}`)
+        if (currentClassType === CLASSTYPE.ALL) setFilteredItems(items)
+        else if (currentClassType === CLASSTYPE.CARDIO) {
+            const filtered = items.filter((item: any) => item.classType === "CARDIO")
+            setFilteredItems(filtered)
+        } else if (currentClassType === CLASSTYPE.STRENGTH) {
+            const filtered = items.filter((item: any) => item.classType === "STRENGTH")
+            setFilteredItems(filtered)
+        }
+        else if (currentClassType === CLASSTYPE.FLEXLITY) {
+            setFilteredItems([])
+        }
+        
+        
+    }, [currentClassType, items])
+
     return (
         <div>
             <div><img src={Classtoday} className="" /></div>
@@ -32,24 +71,32 @@ const classfitness = () => {
                 </div>
                 <div className="flex px-8">
                     <div className="flex justify-between">
-                        <button className="justify-items-center w-36 h-16 text-[#CC1B32] text-xl font-normal border-b-4 border-white  border-[#CC1B32] hover:border-[#CC1B32] hover:font-semibold ">ALL</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.ALL)} className="justify-items-center w-36 h-16 text-[#CC1B32] text-xl font-normal border-b-4 border-white hover:border-[#CC1B32] hover:font-semibold ">ALL</button>
                     </div>
                     <div className="flex justify-between">
-                        <button className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#D0E495] text-[#D0E495] hover:font-semibold ">CARDIO</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.CARDIO)} className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#D0E495] text-[#D0E495] hover:font-semibold ">CARDIO</button>
                     </div>
                     <div className="flex justify-between">
-                        <button className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#F17474] text-[#F17474] hover:font-semibold ">STRENGTH</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.STRENGTH)} className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#F17474] text-[#F17474] hover:font-semibold ">STRENGTH</button>
                     </div>
                     <div className="flex justify-between">
-                        <button className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#74B5F1] text-[#74B5F1] hover:font-semibold ">FLEXLITY</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.FLEXLITY)} className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#74B5F1] text-[#74B5F1] hover:font-semibold ">FLEXLITY</button>
                     </div>
                 </div>
                 <div className="pb-5">
                     <hr className="h-1 bg-[#8D8888]"></hr>
                 </div>
-            <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" name="1/20"/>
+                {/* <h1>{JSON.stringify(filteredItems)}</h1> */}
+                {
+                    filteredItems.map((item: any) => 
+                    item.classType === "STRENGTH" 
+                    ? <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" name="nat"/>
+                    : item.classType === "CARDIO" 
+                    ? <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" name="Aim"/>: null)
+                }
+            {/* <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" name="nat"/>
             <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" name="Aim"/>
-            <Slotclasssflexlity slotclassname="SH`BAM~~~" time="17:00-18:00" quantity="0/20"/>
+            <Slotclasssflexlity slotclassname="SH`BAM~~~" time="17:00-18:00" name="nat"/> */}
             <div className="absolute right-0 p-8">
                 <button className="w-45 border-2 rounded-md border-[#9D9A9A] bg-[#F5F5F5] text-[#5E5454] shadow-md p-3 px-4 flex 
                 hover:-translate-y-1 hover:scale-103 hover:bg-[#DBDBDB] duration-300 hover:border-[#606060]" onClick={() => { navigate('/mybooking'); }}>

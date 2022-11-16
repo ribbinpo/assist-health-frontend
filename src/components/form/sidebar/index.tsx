@@ -6,6 +6,7 @@ import Exercise from 'assets/images/exerciseicon.png';
 import Logout from 'assets/images/logout.png';
 import Dashboardicon from 'assets/images/dashboardicon.png'
 import { useNavigate } from 'react-router-dom';
+import Classroom from 'assets/images/classroom.png';
 
 const sidebar = () => {
     const navigate = useNavigate();
@@ -51,6 +52,17 @@ const sidebar = () => {
                             <div className="flex items-center">
                             <img src={ Classicon } className="w-10 pr-2" />
                             <span>Class</span>
+                            </div>   
+                            </a>
+                        </li>
+                        <li className="rounded-sm">
+                            <a
+                                href="/adminclass"
+                                className="flex items-center p-2 space-x-3 rounded-md"
+                            >
+                            <div className="flex items-center">
+                            <img src={ Classroom } className="w-10 pr-2" />
+                            <span>Room</span>
                             </div>   
                             </a>
                         </li>
