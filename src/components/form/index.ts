@@ -11,7 +11,7 @@ export { Slotclasssflexlity } from './slotclassflexlity';
 export { Sidebar } from './sidebar';
 export { Addclass } from './addclass';
 export { Editclass } from './editclass';
-export { Deluser } from './deluser';
+export { Del } from './del';
 export { Edituser } from './edituser';
 export { Adduser } from './adduser';
 export { Sidebartrainer } from './sidebarbackofficetrainer';
@@ -20,3 +20,5 @@ export { Edittime } from './edittime';
 export { LabelForm } from './labelform';
 export { Confirmbooking } from './confirmbooking';
 export { Sucessbooking } from './sucessbooking';
+export { Addroom } from './addroom';
+export { Editroom } from './editroom'

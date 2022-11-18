@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Classroom from 'assets/images/classroom.png';
 
 
-const test = () => {
+const editroom = () => {
  
   const navigate = useNavigate();
   const [roomName, setroomName] = useState('');
@@ -30,13 +30,13 @@ const test = () => {
         <div className="flex flex-col gap-y-5 py-5 rounded-md px-10" style={{ backgroundColor: '#EAE9E9' }}>
           <div className='flex iteams-center'>
             <img src={ Classroom } className="w-20 h-20" />
-            <h1 className='text-5xl ml-5 pt-6'>Add room</h1>
+            <h1 className='text-5xl ml-5 pt-6'>Edit room</h1>
 
           </div>
             <div className='py-8'>
               <TextField placeholder="Name room" value={roomName} onChange={(e) => setroomName(e.target.value)}/>
             </div>
-            <Button buttonName="Add room"/>
+            <Button buttonName="Edit room"/>
             </div>
         
         </div>
@@ -46,4 +46,4 @@ const test = () => {
   );
 }
 
-export { test as Test };
+export { editroom as Editroom };

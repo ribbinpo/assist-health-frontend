@@ -45,7 +45,8 @@ const classfitness = () => {
             setFilteredItems(filtered)
         }
         else if (currentClassType === CLASSTYPE.FLEXLITY) {
-            setFilteredItems([])
+            const filtered = items.filter((item: any) => item.classType === "FLEXLITY")
+            setFilteredItems(filtered)
         }
         
         
@@ -86,24 +87,24 @@ const classfitness = () => {
                 <div className="pb-5">
                     <hr className="h-1 bg-[#8D8888]"></hr>
                 </div>
-                {/* <h1>{JSON.stringify(filteredItems)}</h1> */}
+            
                 {
                     filteredItems.map((item: any) => 
-                    item.classType === "STRENGTH" 
-                    ? <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" name="nat"/>
-                    : item.classType === "CARDIO" 
-                    ? <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" name="Aim"/>: null)
+                    item.classType === "CARDIO" 
+                    ? <Slotclasscardio slotclassname={item.className}  time= {item.start_time &&"-"&& item.end_time} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>
+                    : item.classType === "STRENGTH" 
+                    ? <Slotclassstrength slotclassname= {item.className} time= {item.start_time &&"-"&& item.end_time} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>
+                    : item.classType === "FLEXLITY"
+                    ? <Slotclasssflexlity slotclassname= {item.className} time= {item.start_time &&"-"&& item.end_time} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>:
+                    null)
                 }
-            {/* <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" name="nat"/>
-            <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" name="Aim"/>
-            <Slotclasssflexlity slotclassname="SH`BAM~~~" time="17:00-18:00" name="nat"/> */}
-            <div className="absolute right-0 p-8">
+            
+                <div className="absolute right-0 p-8">
                 <button className="w-45 border-2 rounded-md border-[#9D9A9A] bg-[#F5F5F5] text-[#5E5454] shadow-md p-3 px-4 flex 
                 hover:-translate-y-1 hover:scale-103 hover:bg-[#DBDBDB] duration-300 hover:border-[#606060]" onClick={() => { navigate('/mybooking'); }}>
                 <div className="w-10 pr-4"><img src={Booking} className="" /></div>
                     MY BOOKING</button>
-            </div>
-            
+                </div>
         </div>
     );
 };

@@ -6,7 +6,7 @@ import Group from 'assets/images/group.png';
 import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 
-const slotclasssflexlity = ({slotclassname, time, name}: any) => {
+const slotclasssflexlity = ({slotclassname, time, name,  entries, limit}: any) => {
 
     const [isOpenConfirmBooking, setIsOpenConfirmBooking] = useState(false)
 
@@ -52,21 +52,8 @@ const slotclasssflexlity = ({slotclassname, time, name}: any) => {
                         </div>
                     </div>
                 </Dialog>
-        </Transition>
+            </Transition>
 
-        {/* <div className="px-7 pt-5">
-        <div className="bg-[#74B5F1] rounded-xl drop-shadow-xl  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 hover:bg-sky-600 duration-300 ">
-            <div className="items-center flex justify-between ">
-            <div  className="text-black pl-5 font-bold">{slotclassname}</div>
-            <div  className="text-black pl-5">{time}</div>
-            <div className="flex flex-row items-center">
-                <img src={ User } className="w-8" />
-                <div  className="text-black pl-5"> {quantity}</div>
-            </div>
-            <div  className="pl-5 pr-7"><Buttonbooking buttonName="BOOKING" /></div>
-            </div>
-    </div>
-    </div> */}
             <div className="px-7 pt-5 justify-items-center">
             <div className="bg-[#74B5F1] rounded-xl drop-shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 hover:bg-red-500 duration-300">
                 <div className="items-center flex justify-between ">
@@ -83,7 +70,7 @@ const slotclasssflexlity = ({slotclassname, time, name}: any) => {
                                     <div  style={{ width: "50%" }} className="bg-[#CC1B32] h-2.5 rounded-full  "></div>
                                 </div>
                             </div>
-                            <div className="pl-2 mt-3">10/20</div>
+                            <div className="pl-2 mt-3">{ entries }/{ limit }</div>
                         </div>
                     <div  className="pl-5 pr-7" onClick={openModalConfirmBooking}><Buttonbooking buttonName="BOOK THIS CLASS" /></div>
                 </div>

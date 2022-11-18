@@ -3,7 +3,7 @@ import { TextField, Button } from 'components';
 import { useNavigate } from 'react-router-dom';
 import { Country } from 'assets/data/country';
 import Adduser from 'assets/images/adduser.png';
-
+import axios from 'axios';
 
 const adduser = () => {
   const navigate = useNavigate();
@@ -23,11 +23,10 @@ const adduser = () => {
   const [phonenumber, setPhonenumber] = useState('');
   
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(username);
     console.log(password);
-    console.log(type);
     console.log(email);
     console.log(firstname);
     console.log(lastname);
@@ -41,23 +40,29 @@ const adduser = () => {
     console.log(phonenumber);
 
     const adduser = {
-    username: username,
-    password: password,
-    type: type,
-    email: email,
-    firstname: firstname,
-    lastname: lastname,
-    birthday: birthday,
-    idcard: idcard,
-    gender: gender,
-    blood:blood,
-    country:country,
-    weight:weight,
-    height:height,
-    phonenumber:phonenumber,
+      username: username,
+      password: password,
+      // confirmpassword: confirmpassword,
+      email: email,
+      firstName: firstname,
+      lastName: lastname,
+      role_id:1,
+      // birthday: birthday,
+      passport: idcard,
+      // gender: gender,
+      // blood: blood,
+      // country: country,
+      // weight: weight,
+      // height: height,
+      phoneNumber: phonenumber
     }
     console.log(adduser);
 
+    await axios.post("http://localhost:8000/auth/signup",adduser)
+    .then(res => {
+      console.log("success");
+      navigate('/user')
+    })
 
   };
   const  onChangeGender = (e: React.ChangeEvent<HTMLInputElement>) => {

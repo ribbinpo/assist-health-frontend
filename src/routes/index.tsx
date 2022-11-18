@@ -3,7 +3,7 @@ import { AuthLogin, AuthSignup, Dashboard,
         Trainer, Mytrainer, Account, 
         Trainerschdule, BackofficeAdmin, 
         BackofficeUser, Adminclass, 
-        Viewclass, Trainermangeschedule, TrainerAccount, Trainerschedule, Test} from "../pages";
+        Viewclass, Trainermangeschedule, TrainerAccount, Trainerschedule, Test, Adminroom} from "../pages";
 
 export const guestRoutes = [
   {
@@ -77,6 +77,10 @@ export const guestRoutes = [
   {
     path: '/test',
     element: <Test />
+  },
+  {
+    path: '/adminroom',
+    element: <Adminroom />
   },
 
 ];

@@ -2,26 +2,32 @@ import React, { useState } from 'react';
 import { TextField, Button } from 'components';
 import { useNavigate } from 'react-router-dom';
 import Classroom from 'assets/images/classroom.png';
+import axios from 'axios';
 
-
-const test = () => {
+const addroom = () => {
  
   const navigate = useNavigate();
   const [roomName, setroomName] = useState('');
  
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(roomName);
     
 
-    const addclass = {
-    nameclass: roomName,
+    const addroom = {
+    roomName: roomName
    
-    }
-    console.log(addclass);
-
-  };
+    };
+    console.log(addroom);
+    
+    axios.post("http://localhost:8000/room/create",addroom)
+    .then(res => {
+        console.log("success");
+        navigate('/adminroom')
+    })
+    };
+  
+  
 
   return (
     <form onSubmit={onSubmit}>
@@ -46,4 +52,4 @@ const test = () => {
   );
 }
 
-export { test as Test };
+export { addroom as Addroom };

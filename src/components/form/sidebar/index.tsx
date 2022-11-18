@@ -57,7 +57,7 @@ const sidebar = () => {
                         </li>
                         <li className="rounded-sm">
                             <a
-                                href="/adminclass"
+                                href="/adminroom"
                                 className="flex items-center p-2 space-x-3 rounded-md"
                             >
                             <div className="flex items-center">

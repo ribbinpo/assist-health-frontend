@@ -12,18 +12,18 @@ const edituser: React.FC<Props> = ({currentUser}) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(currentUser.username);
   const [password, setPassword] = useState(currentUser.password);
-  const [type, setType ] = useState(currentUser.role);
+  const [type, setType ] = useState(currentUser.role_id);
   const [email, setEmail] = useState(currentUser.email);
   const [firstname, setFirstname] = useState(currentUser.firstName);
   const [lastname, setLastname] = useState(currentUser.lastName);
-  const [birthday, setBirthday] = useState('');
-  const [idcard, setIdcard] = useState('');
-  const [gender, setGender]  = useState('');
-  const [blood, setBlood] = useState('');
-  const [country,setConntry] = useState('');
-  const [weight, setWeight] = useState('');
-  const [height, setHeight] = useState('');
-  const [phonenumber, setPhonenumber] = useState('');
+  const [birthday, setBirthday] = useState(currentUser.birthday);
+  const [idcard, setIdcard] = useState(currentUser.passport);
+  const [gender, setGender]  = useState(currentUser.gender);
+  const [blood, setBlood] = useState(currentUser.bloodType);
+  const [country,setCountry] = useState(currentUser.country);
+  const [weight, setWeight] = useState(currentUser.weight);
+  const [height, setHeight] = useState(currentUser.height);
+  const [phonenumber, setPhonenumber] = useState(currentUser.phoneNumber);
 
   console.log(currentUser);
 
@@ -84,12 +84,13 @@ const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             <div className='grid gap-2 grid-cols-2'>
               <div>
                 <LabelForm text="Birthday"/>
-                <input type="date"className="form-input rounded-md border-none p-3  w-full " value={birthday} onChange={(e) => setBirthday(e.target.value)}/>
+                <input  value={birthday} className="form-input rounded-md border-none p-3  w-full "  onChange={(e) => setBirthday(e.target.value)}/>
+                {/* <TextField placeholder="Birthday" value={birthday} onChange={(e) => setBirthday(e.target.value)}/> */}
                 </div>
               <div>
                   <LabelForm text="Type"/>
                   <select id="type" name="type" value={type} onChange={(e) => setType(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                  <option value="">Type</option>
+                  <option value="type">{type }</option>
                   <option value="Admin">Admin</option>
                   <option value="Trainer">Trainer</option>
                   <option value="User">User</option>
@@ -104,24 +105,18 @@ const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
               <div><LabelForm text="Firstname"/><TextField placeholder="FirstName" value={firstname} onChange={(e) => setFirstname(e.target.value)} /></div>
               <div><LabelForm text="Lastname"/><TextField placeholder="LastName" value={lastname} onChange={(e) => setLastname(e.target.value)} /></div>
             </div>
-            <div>
-            <LabelForm text="ID-Card/Passport"/>
-            <TextField placeholder="ID-Card/Passport" value={idcard} onChange={(e) => setIdcard(e.target.value)} />
+            <div className='grid gap-4 grid-cols-2 '>
+            <div><LabelForm text="ID-Card/Passport"/>
+            <TextField placeholder="ID-Card/Passport" value={idcard} onChange={(e) => setIdcard(e.target.value)} /></div>
+            <div><LabelForm text="Gender"/>
+            <TextField placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)} /></div>
             </div>
-            <div className='grid gap-4 grid-cols-4' onChange={onChangeGender}>
-              <div><p className='text-[#B0B0B0]'>Gender</p></div>
-              <div><input type="radio" name="gender" value="male" className="rounded-xl "></input>
-              <label className='text-[#B0B0B0] pl-2'>Male</label></div>
-              <div><input type="radio" name="gender" value="female" className="rounded-xl"></input>
-              <label className='text-[#B0B0B0] pl-2'>Female</label></div>
-              <div><input type="radio" name="gender" value="other" className="rounded-xl"></input>
-              <label className='text-[#B0B0B0] pl-2'>Other</label></div>
-            </div>
+
             <div className='grid grid-cols-2 gap-4'>
                 <div>
                   <LabelForm text="Blood Type"/>
-                  <select id="blood" name="blood" className='form-input rounded-md border-none p-3 text-[#595757] w-full' onChange={(e) => setBlood(e.target.value)}>
-                  <option value="" >Blood Type</option>
+                  <select id="blood" name="blood" value={blood} className='form-input rounded-md border-none p-3 text-[#595757] w-full' onChange={(e) => setBlood(e.target.value)}>
+                  <option value={blood}>{blood}</option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
                   <option value="B+">B+</option>
@@ -132,15 +127,15 @@ const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                   <option value="O-">O-</option>
                   </select>
                 </div>
-                <div><LabelForm text="Country"/><select id="country" name="country" className='form-input rounded-md border-none p-3 text-[#595757]' onChange={(e) => setConntry(e.target.value)}>
-                  <option value="">Country</option>
+                <div><LabelForm text="Country"/><select id="country" name="country" className='form-input rounded-md border-none p-3 text-[#595757]' onChange={(e) => setCountry(e.target.value)}>
+                  <option value={country} >{country}</option>
                   {Country.map((item, index) => <option key={index} value={item}>{item}</option>)}
                 </select></div>
                 <div><LabelForm text="Weight"/><TextField placeholder="Weight(KG)" value={weight} onChange={(e) => setWeight(e.target.value)} /></div>
                 <div><LabelForm text="Height"/><TextField placeholder="Height(CM)" value={height} onChange={(e) => setHeight(e.target.value)} /></div>
             </div>
             
-            <div><LabelForm text="Phone Number"/><TextField placeholder="Phone Number" value={phonenumber} onChange={(e) => setPhonenumber(e.target.value)}/></div>
+            <div><LabelForm text="Phone Number"/><TextField placeholder="Phone Number" value= {phonenumber} onChange={(e) => setPhonenumber(e.target.value)}/></div>
             <div className='pt-6 pl-80' onClick={() => { navigate('/user'); }}>
             <Button buttonName="Confirm" />
             </div>

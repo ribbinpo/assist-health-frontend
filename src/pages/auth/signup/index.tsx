@@ -28,8 +28,8 @@ const authSignup = () => {
     console.log(password);
     // console.log(confirmpassword);
     console.log(email);
-    console.log(firstname);
-    console.log(lastname);
+    // console.log(firstname);
+    // console.log(lastname);
     // console.log(birthday);
     // console.log(idcard);
     // console.log(gender);
@@ -48,13 +48,13 @@ const authSignup = () => {
       lastName: lastname,
       role_id:1,
       // birthday: birthday,
-      // idcard: idcard,
+      passport: idcard,
       // gender: gender,
       // blood: blood,
       // country: country,
       // weight: weight,
       // height: height,
-      // phonenumber: phonenumber
+      phoneNumber: phonenumber
     };
     console.log(signup);
 
@@ -64,6 +64,7 @@ const authSignup = () => {
       navigate('/auth/login')
     })
   };
+  
   const onChangeGender = (e: React.ChangeEvent<HTMLInputElement>) => {
     // console.log('Select: ', e.target.value);
     setGender(e.target.value);

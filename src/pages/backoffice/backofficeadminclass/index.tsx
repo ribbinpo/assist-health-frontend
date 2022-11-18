@@ -1,13 +1,14 @@
-import React from "react";
 import { Sidebar } from "components";
 import { useNavigate, useRoutes } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
-import { Addclass, Editclass, Deluser } from 'components';
+import { Addclass, Editclass, Del } from 'components';
+import axios from 'axios';
+import React, { Fragment, useEffect, useState } from 'react'
 
 const adminclass = () => {
 
     const router = useNavigate();
+    const [items, setItems] = useState([])
 
     const [isOpen, setIsOpen] = useState(false)
   
@@ -38,6 +39,15 @@ const adminclass = () => {
     function openModalDel() {
         setIsOpenDel(true)
     }
+
+    useEffect(() => {
+        const getItems = async () => {
+            const response = await axios.get("http://localhost:8000/classes/getAll")
+            const data = response.data
+            setItems(data)
+        }
+        getItems()
+    },[])
     
     
     
@@ -150,7 +160,7 @@ const adminclass = () => {
                 leaveTo="opacity-0 scale-95"
                 >
                     <Dialog.Panel>
-                    <div><Deluser/></div>
+                    <div><Del/></div>
                     </Dialog.Panel>
                     </Transition.Child>
                     </div>
@@ -221,6 +231,85 @@ const adminclass = () => {
                 </tbody>
             </table>
             </div>
+
+            <div className="w-full pt-5 px-2">
+                <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <table className="w-full text-sm text-left text-gray-500 ">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-200 ">
+                            <tr>
+                                <th scope="col" className="py-3 px-3">
+                                    Class ID
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    Name class
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    Type
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    Start Time
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    End Time
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    Entries
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    Limit
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    View
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    Edit
+                                </th>
+                                <th scope="col" className="py-3 px-3">
+                                    Delete
+                                </th>
+                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.map((prop: any, i: React.Key) => (
+                            <tr key={i} className="bg-white border-b">
+                                <th scope="row" className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap ">
+                                    {prop.id}
+                                </th>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.classType}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
+                                    {prop.className}
+                                </td>
+                                
+                            </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                </div>
             </div>
         </div>
     )
