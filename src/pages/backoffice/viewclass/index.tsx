@@ -18,7 +18,7 @@ const viewclass = () => {
                     </div>
                     <div className='flex justify-between'>
                         <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            3
+                            3git
                         </div>
                         <div><img src={ User } className="w-8" /></div>
                     </div>

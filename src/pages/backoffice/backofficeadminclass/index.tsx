@@ -168,70 +168,6 @@ const adminclass = () => {
                 </Dialog>
             </Transition>
 
-
-
-      
-            <div className="pt-2 px-2 pl-2 w-full">
-            <table className="border-collapse w-full text-center">
-                <thead>
-                    <tr>
-                    <th className="border border-slate-300 w-8">Id</th>
-                    <th className="border border-slate-300 w-36">Name Class</th>
-                    <th className="border border-slate-300 w-8">Type</th>
-                    <th className="border border-slate-300 w-28">Strat Time</th>
-                    <th className="border border-slate-300 w-28">End Time</th>
-                    <th className="border border-slate-300 w-28">Date</th>
-                    <th className="border border-slate-300 w-28">quality</th>
-                    <th className="border border-slate-300 w-28">Status</th>
-                    <th className="border border-slate-300 w-20">View👀</th>
-                    <th className="border border-slate-300 w-20">Edit✏️</th>
-                    <th className="border border-slate-300 w-20">delete🗑</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td className="border border-slate-300 py-2 text-center">1</td>
-                    <td className="border border-slate-300 py-2">Bodybum</td>
-                    <td className="border border-slate-300 py-2">Cardio</td>
-                    <td className="border border-slate-300 py-2">08:00</td>
-                    <td className="border border-slate-300 py-2">09:00</td>
-                    <td className="border border-slate-300 py-2">14/10/2022</td>
-                    <td className="border border-slate-300 py-2">20</td>
-                    <td className="border border-slate-300 py-2">Avaliable</td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass");}}>View</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#fff41c] px-8" onClick={openModalEdit}>Edit</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5" onClick={openModalDel}>Delete</button></td>
-                    </tr>
-                    <tr>
-                    <td className="border border-slate-300 py-2 text-center">2</td>
-                    <td className="border border-slate-300 py-2">Bodybum</td>
-                    <td className="border border-slate-300 py-2">Cardio</td>
-                    <td className="border border-slate-300 py-2">08:00</td>
-                    <td className="border border-slate-300 py-2">09:00</td>
-                    <td className="border border-slate-300 py-2">14/10/2022</td>
-                    <td className="border border-slate-300 py-2">20</td>
-                    <td className="border border-slate-300 py-2">Avaliable</td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass");}}>View</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#fff41c] px-8" onClick={()=>{router("/editclass");}}>Edit</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5">Delete</button></td>
-                    </tr>
-                    <tr>
-                    <td className="border border-slate-300 py-2 text-center">3</td>
-                    <td className="border border-slate-300 py-2">Bodybum</td>
-                    <td className="border border-slate-300 py-2">Cardio</td>
-                    <td className="border border-slate-300 py-2">08:00</td>
-                    <td className="border border-slate-300 py-2">09:00</td>
-                    <td className="border border-slate-300 py-2">14/10/2022</td>
-                    <td className="border border-slate-300 py-2">20</td>
-                    <td className="border border-slate-300 py-2">Avaliable</td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass");}}>View</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-[#fff41c] px-8" onClick={()=>{router("/editclass");}}>Edit</button></td>
-                    <td className="border border-slate-300 py-2"><button className="rounded-lg bg-red-600 px-5">Delete</button></td>
-                    </tr>
-                </tbody>
-            </table>
-            </div>
-
             <div className="w-full pt-5 px-2">
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-gray-500 ">
@@ -283,25 +219,25 @@ const adminclass = () => {
                                     {prop.classType}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.className}
+                                    {prop.start_time}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.className}
+                                    {prop.end_time}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.className}
+                                    {prop.entries}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.className}
+                                    {prop.limit}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.className}
+                                <button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass");}}>View</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.className}
+                                <button className="rounded-lg bg-[#fff41c] px-8" onClick={()=>{router("/editclass");}}>Edit</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.className}
+                                  <button className="rounded-lg bg-red-600 px-5">Delete</button>
                                 </td>
                                 
                             </tr>
