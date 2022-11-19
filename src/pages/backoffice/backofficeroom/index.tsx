@@ -170,7 +170,7 @@ const adminroom = () => {
 
 
                 
-                <div className="w-full pt-5 px-2">
+                <div className="w-full pt-5 px-8">
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-gray-500 ">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-200 ">

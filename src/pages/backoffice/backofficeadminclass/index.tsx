@@ -168,10 +168,10 @@ const adminclass = () => {
                 </Dialog>
             </Transition>
 
-            <div className="w-full pt-5 px-2">
+            <div className="w-full pt-5 px-">
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-gray-500 ">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-200 ">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-200">
                             <tr>
                                 <th scope="col" className="py-3 px-3">
                                     Class ID
@@ -234,10 +234,10 @@ const adminclass = () => {
                                 <button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass");}}>View</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                <button className="rounded-lg bg-[#fff41c] px-8" onClick={()=>{router("/editclass");}}>Edit</button>
+                                <button className="rounded-lg bg-[#fff41c] px-8"  onClick={openModalEdit} >Edit</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                  <button className="rounded-lg bg-red-600 px-5">Delete</button>
+                                  <button className="rounded-lg bg-red-600 px-5"  onClick={openModalDel} >Delete</button>
                                 </td>
                                 
                             </tr>
