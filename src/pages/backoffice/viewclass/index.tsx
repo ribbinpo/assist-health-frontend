@@ -2,9 +2,11 @@ import React from 'react';
 import { Sidebar } from "components";
 import { useNavigate, useRoutes } from 'react-router-dom';
 import User from 'assets/images/user.png';
+import Arrow from 'assets/images/arrow.png'
 
 const viewclass = () => {
     const router = useNavigate();
+    const navigate = useNavigate();
     return(
         <div className="flex">
             <Sidebar/>
@@ -18,7 +20,7 @@ const viewclass = () => {
                     </div>
                     <div className='flex justify-between'>
                         <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            3git
+                            3
                         </div>
                         <div><img src={ User } className="w-8" /></div>
                     </div>
@@ -28,40 +30,53 @@ const viewclass = () => {
             <div className="px-2 pt-5 pb-3">
                 <hr></hr>
             </div>
-
-            <div className="pt-2 px-2 pl-2 w-full">
-            <table className="border-collapse w-full text-center">
-                <thead>
-                    <tr>
-                    <th className="border border-slate-300 w-8">Id</th>
-                    <th className="border border-slate-300 w-36">Name</th>
-                    <th className="border border-slate-300 w-36">Tel</th>
-                    <th className="border border-slate-300 w-20">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td className="border border-slate-300 py-2 text-center">1</td>
-                    <td className="border border-slate-300 py-2">Teerawut saysim</td>
-                    <td className="border border-slate-300 py-2">0886735463</td>
-                    <td className="border border-slate-300 py-2">Confirm</td>
+            <div className="w-full pt-5 px-2">
+                <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <table className="w-full text-sm text-left text-gray-500 ">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-200 ">
+                            <tr>
+                                <th scope="col" className="py-3 px-5">
+                                    ID
+                                </th>
+                                <th scope="col" className="py-3 px-5">
+                                    Name
+                                </th>
+                                <th scope="col" className="py-3 px-5">
+                                    Tel
+                                </th>
+                                <th scope="col" className="py-3 px-5">
+                                    Status
+                                </th>
+                                
                     
-                    </tr>
-                    <tr>
-                    <td className="border border-slate-300 py-2 text-center">2</td>
-                    <td className="border border-slate-300 py-2">Ronnakron sanyee</td>
-                    <td className="border border-slate-300 py-2">0917828463</td>
-                    <td className="border border-slate-300 py-2">Confrim</td>
-                    
-                    </tr>
-                    <tr>
-                    <td className="border border-slate-300 py-2 text-center">3</td>
-                    <td className="border border-slate-300 py-2">Armmarin kongtong</td>
-                    <td className="border border-slate-300 py-2">0762748374</td>
-                    <td className="border border-slate-300 py-2">Confirm</td>
-                    </tr>
-                </tbody>
-            </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                            <tr className="bg-white border-b">
+                                <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                    1
+                                </th>
+                                <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                    Nattapong bunchokying
+                                </td>
+                                <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                    0887827071
+                                </td>
+                                <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                    confirm
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div className="absolute right-0 p-8">
+                <button className="w-45 border-2 rounded-md border-[#9D9A9A] bg-[#F5F5F5] text-[#5E5454] shadow-md p-3 px-4 flex 
+                hover:-translate-y-1 hover:scale-103 hover:bg-[#DBDBDB] duration-300 hover:border-[#606060]" onClick={() => { navigate('/adminclass'); }}>
+                <div className="w-10 pr-4"><img src={Arrow} className="" /></div>
+                    BACK</button>
+                </div>
             </div>
             </div>
         </div>
