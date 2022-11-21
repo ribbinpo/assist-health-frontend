@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { TextField, Button } from 'components';
+import { TextField, Button, LabelForm } from 'components';
 import { useNavigate } from 'react-router-dom';
 import Addclass from 'assets/images/addclass.png';
-import { Time } from 'assets/data/time';
+import axios from 'axios';
+
 
 
 
@@ -11,35 +12,51 @@ const addclass = () => {
   const navigate = useNavigate();
   const [nameclass, setnameclass] = useState('');
   const [classtype, setclasstype] = useState('');
-  const [date, setdate] = useState('');
   const [starttime, setstarttime] = useState('');
   const [endtime, setendtime] = useState('');
   const [limit, setlimit] = useState('');
-  const [status, setstatus] = useState('');
+  const [status, setstatus] = useState(true);
   const [room, setroom ] = useState('');
+  const [teacher, setteacher] = useState('');
+  
   
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(nameclass);
     console.log(classtype);
-    console.log(date);
     console.log(starttime);
     console.log(endtime);
     console.log(limit);
     console.log(status);
     console.log(room)
+    console.log(teacher);
+  
+    const start = new Date(starttime);
+    console.log(start);
+    
+    const end = new Date(endtime);
+    console.log(end);
+    
 
     const addclass = {
-    nameclass: nameclass,
-    classtype: classtype,
-    date: date,
-    starttime: starttime,
-    endtime: endtime,
-    limit: limit,
-    status: status,
+    className: nameclass,
+    classType: classtype,
+    start_time: start,
+    end_time: end,
+    limit: +limit,
+    teacher: teacher,
+    room_id: +room,
+    status: status
+    
     }
     console.log(addclass);
+
+    axios.post("http://localhost:8000/classes/create",addclass)
+    .then(res => {
+        console.log(res);
+        navigate('/adminclass')
+    })
 
   };
 
@@ -53,50 +70,53 @@ const addclass = () => {
             <h1 className='text-5xl ml-5 pt-6'>Add Class</h1>
 
           </div>
-          
-            <TextField placeholder="Name class" value={nameclass} onChange={(e) => setnameclass(e.target.value)}/>
+            <div>
+            <LabelForm text="Name class"/>
+            <TextField placeholder="Name class" value={nameclass} onChange={(e) => setnameclass(e.target.value)}/></div>
             <div className='grid gap-2 grid-cols-2'>
                 <div>
+                <LabelForm text="Type"/>
                     <select id="classtype" name="type" value={classtype} onChange={(e) => setclasstype(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
                         <option value="type">Type</option>
-                        <option value="cardio">Cardio</option>
-                        <option value="strength">Strength</option>
-                        <option value="flexliity">Flexlity</option>
+                        <option value="CARDIO">CARDIO</option>
+                        <option value="STRENGTH">STRENGTH</option>
+                        <option value="FLEXLITY">FLEXLITY</option>
                     </select>
                 </div>
                 <div>
-                    <div className='w-full'><input type="datetime-local" value={date} onChange={(e) => setdate(e.target.value)} className="form-input rounded-md border-none p-3  w-full"/></div>
+                <LabelForm text="Room"/>
+                <TextField placeholder="Room" value={room} onChange={(e) => setroom(e.target.value)}/>
                 </div>
             </div>
 
             <div className='grid gap-2 grid-cols-2'>
                 <div>
-                    <select id="starttime" name="starttime"  value={starttime} onChange={(e) => setstarttime(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                        <option value="">Start time</option>
-                        {Time.map((item, index) => <option key={index} value={item}>{item}</option>)}
-                        
-                    </select>
+                <LabelForm text="Start time"/>
+                <div><input type="datetime-local" value={starttime} onChange={(e) => setstarttime(e.target.value)} className="form-input rounded-md border-none p-3  w-full"/></div>
                 </div>
                 <div>
-                <select id="endtime" name="endtime"  value={endtime} onChange={(e) => setendtime(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
-                        <option value="endtime">End time</option>
-                        {Time.map((item, index) => <option key={index} value={item}>{item}</option>)}
-                    </select>
+                <LabelForm text="End time"/>
+                <div><input type="datetime-local" value={endtime} onChange={(e) => setendtime(e.target.value)} className="form-input rounded-md border-none p-3  w-full"/></div>
                 </div>
             </div>
             <div className='grid gap-2 grid-cols-2'>
                 <div>
+                <LabelForm text="Limit"/>
                 <TextField placeholder="Limit" value={limit} onChange={(e) => setlimit(e.target.value)}/>
                 </div>
-                <div>
+                {/* <div>
+                <LabelForm text="Status"/>
                 <select id="status" name="status" value={status} onChange={(e) => setstatus(e.target.value)} className='form-input rounded-md border-none p-3 text-[#595757] w-full'>
                         <option value="status">Status</option>
-                        <option value="avaliable">Avaliable</option>
-                        <option value="unavaliable">Unavaliable</option>
+                        <option value="true">true</option>
+                        <option value="false">false</option>
                     </select>
-                </div>
+                </div> */}
             </div>
-            <TextField placeholder="Room" value={room} onChange={(e) => setnameclass(e.target.value)}/>
+            <div>
+            <LabelForm text="Teacher"/>
+            <TextField placeholder="Teacher" value={teacher} onChange={(e) => setteacher(e.target.value)}/>
+            </div>
             <div className='pt-6 pl-80' onClick={() => { navigate('/adminclass'); }}>
             <Button buttonName="Add class"/>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button } from 'components';
+import { TextField, Button, LabelForm } from 'components';
 import { useNavigate } from 'react-router-dom';
 import Classroom from 'assets/images/classroom.png';
 
@@ -34,6 +34,7 @@ const editroom = () => {
 
           </div>
             <div className='py-8'>
+            <LabelForm text="Name room"/>
               <TextField placeholder="Name room" value={roomName} onChange={(e) => setroomName(e.target.value)}/>
             </div>
             <Button buttonName="Edit room"/>

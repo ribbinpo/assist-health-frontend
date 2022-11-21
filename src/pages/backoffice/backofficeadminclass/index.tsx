@@ -168,7 +168,7 @@ const adminclass = () => {
                 </Dialog>
             </Transition>
 
-            <div className="w-full pt-5 px-">
+            <div className="w-full pt-5 px-8">
                 <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-gray-500 ">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-200">
@@ -222,7 +222,7 @@ const adminclass = () => {
                                     {new Date(prop.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.end_time}
+                                    {new Date(prop.end_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
                                     {prop.entries}

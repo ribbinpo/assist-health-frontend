@@ -13,11 +13,6 @@ enum CLASSTYPE {
     FLEXLITY
   }
 
-const classes = [
-    { id: 1, name: "BODYPUMP", start: "08:00", end: "09:00", quantity: 1, max: 20, },
-];
-
-
 const classfitness = () => {
     const navigate = useNavigate();
     
@@ -77,13 +72,13 @@ const classfitness = () => {
                         <button onClick={() => setCurrentClassType(CLASSTYPE.ALL)} className={`${currentClassType === CLASSTYPE.ALL ? "border-[#CC1B32]" : "border-white"} justify-items-center w-36 h-16 text-[#CC1B32] text-xl font-normal border-b-4  hover:border-[#CC1B32] hover:font-semibold`}>ALL</button>
                     </div>
                     <div className="flex justify-between">
-                        <button onClick={() => setCurrentClassType(CLASSTYPE.CARDIO)} className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#D0E495] text-[#D0E495] hover:font-semibold ">CARDIO</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.CARDIO)} className={`${currentClassType === CLASSTYPE.CARDIO ? "border-[#D0E495]" : "border-white"} justify-items-center w-36 h-16 text-[#D0E495] text-xl font-normal border-b-4  hover:border-[#D0E495] hover:font-semibold `}>CARDIO</button>
                     </div>
                     <div className="flex justify-between">
-                        <button onClick={() => setCurrentClassType(CLASSTYPE.STRENGTH)} className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#F17474] text-[#F17474] hover:font-semibold ">STRENGTH</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.STRENGTH)} className={`${currentClassType === CLASSTYPE.STRENGTH ? "border-[#F17474]" : "border-white"} justify-items-center w-36 h-16 text-[#F17474] text-xl font-normal border-b-4 hover:border-[#F17474]  hover:font-semibold `}>STRENGTH</button>
                     </div>
                     <div className="flex justify-between">
-                        <button onClick={() => setCurrentClassType(CLASSTYPE.FLEXLITY)} className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#74B5F1] text-[#74B5F1] hover:font-semibold ">FLEXLITY</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.FLEXLITY)} className={`${currentClassType === CLASSTYPE.FLEXLITY ? "border-[#74B5F1]" : "border-white"} justify-items-center w-36 h-16 text-[#74B5F1] text-xl font-normal border-b-4 hover:border-[#74B5F1]  hover:font-semibold `}>FLEXLITY</button>
                     </div>
                 </div>
                 <div className="pb-5">
@@ -91,13 +86,16 @@ const classfitness = () => {
                 </div>
             
                 {
-                    filteredItems.map((item: any) => 
+                    filteredItems.map((item: any, key) =>
                     item.classType === "CARDIO" 
-                    ? <Slotclasscardio slotclassname={item.className}  time= {item.start_time &&"-"&& item.end_time} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>
+                    ? <Slotclasscardio key={key} slotclassname={item.className}  
+                    time= {new Date(item.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) && new Date(item.end_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>
                     : item.classType === "STRENGTH" 
-                    ? <Slotclassstrength slotclassname= {item.className} time= {item.start_time &&"-"&& item.end_time} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>
+                    ? <Slotclassstrength key={key} slotclassname= {item.className} 
+                    time= {new Date(item.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) && new Date(item.end_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>
                     : item.classType === "FLEXLITY"
-                    ? <Slotclasssflexlity slotclassname= {item.className} time= {item.start_time &&"-"&& item.end_time} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>:
+                    ? <Slotclasssflexlity key={key} slotclassname= {item.className} 
+                    time= {new Date(item.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) && new Date(item.end_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} name= {item.teacher} entries= {item.entries} limit= {item.limit}/>:
                     null)
                 }
             

@@ -57,8 +57,8 @@ const slotclasscardio = ({slotclassname, time, name, entries, limit }: any) => {
         <div className="px-7 pt-5 justify-items-center">
             <div className="bg-[#D0E495] rounded-xl drop-shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 hover:bg-green-300 duration-300">
                 <div className="items-center flex justify-between ">
-                    <div  className="text-black pl-5 font-bold">{slotclassname}</div>
-                    <div  className="text-black pl-5 flex"><div className="w-8 pr-2 justify-items-center"><img src={Clock}/></div>{time}</div>
+                    <div  className="text-black pl-5 font-bold">{slotclassname}</div>                      
+                    <div  className="text-black pl-5 flex"><div className="w-8 pr-2 justify-items-center"><img src={Clock}/></div>{time}-{time}</div>
                         <div className="flex flex-row items-center">
                             <img src={ User } className="w-7" />
                             <div  className="text-black pl-3">{name}</div>
