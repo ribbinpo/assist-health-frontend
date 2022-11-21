@@ -6,12 +6,15 @@ import User from 'assets/images/user.png';
 import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { Sucessbooking } from 'components';
+import axios from "axios";
 
 const confirmbooking = () => {
 
   const [isOpenSucessBooking, setIsOpenSucessBooking] = useState(false)
 
-  function closeModalSucessBooking() {
+  
+  async function closeModalSucessBooking() {
+        const response = await axios.post("http://localhost:8000/")
       setIsOpenSucessBooking(false)
   }
   function openModalSucessBooking() {

@@ -219,7 +219,7 @@ const adminclass = () => {
                                     {prop.classType}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                    {prop.start_time}
+                                    {new Date(prop.start_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
                                     {prop.end_time}

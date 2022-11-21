@@ -52,6 +52,8 @@ const classfitness = () => {
         
     }, [currentClassType, items])
 
+
+
     return (
         <div>
             <div><img src={Classtoday} className="" /></div>
@@ -72,7 +74,7 @@ const classfitness = () => {
                 </div>
                 <div className="flex px-8">
                     <div className="flex justify-between">
-                        <button onClick={() => setCurrentClassType(CLASSTYPE.ALL)} className="justify-items-center w-36 h-16 text-[#CC1B32] text-xl font-normal border-b-4 border-white hover:border-[#CC1B32] hover:font-semibold ">ALL</button>
+                        <button onClick={() => setCurrentClassType(CLASSTYPE.ALL)} className={`${currentClassType === CLASSTYPE.ALL ? "border-[#CC1B32]" : "border-white"} justify-items-center w-36 h-16 text-[#CC1B32] text-xl font-normal border-b-4  hover:border-[#CC1B32] hover:font-semibold`}>ALL</button>
                     </div>
                     <div className="flex justify-between">
                         <button onClick={() => setCurrentClassType(CLASSTYPE.CARDIO)} className="justify-items-center w-36 h-16 text-[#5E5454] text-xl font-normal border-b-4 border-white  hover:border-[#D0E495] text-[#D0E495] hover:font-semibold ">CARDIO</button>

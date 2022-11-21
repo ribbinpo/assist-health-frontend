@@ -65,7 +65,7 @@ const addclass = () => {
                     </select>
                 </div>
                 <div>
-                    <div className='w-full'><input type="date" value={date} onChange={(e) => setdate(e.target.value)} className="form-input rounded-md border-none p-3  w-full"/></div>
+                    <div className='w-full'><input type="datetime-local" value={date} onChange={(e) => setdate(e.target.value)} className="form-input rounded-md border-none p-3  w-full"/></div>
                 </div>
             </div>
 
