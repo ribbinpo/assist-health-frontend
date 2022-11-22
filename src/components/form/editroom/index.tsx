@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import Classroom from 'assets/images/classroom.png';
 
 
-const editroom = () => {
+interface Props {
+  currentRoom: any
+}
+const editroom: React.FC<Props> = ({currentRoom}) => {
  
   const navigate = useNavigate();
-  const [roomName, setroomName] = useState('');
+  const [roomName, setroomName] = useState(currentRoom.roomName);
  
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,11 +18,11 @@ const editroom = () => {
     console.log(roomName);
     
 
-    const addclass = {
-    nameclass: roomName,
+    const roomname = {
+    roomName: roomName,
    
     }
-    console.log(addclass);
+    console.log(roomname);
 
   };
 

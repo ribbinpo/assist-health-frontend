@@ -10,7 +10,12 @@ import axios from 'axios';
 const adminroom = () => {
 
     const router = useNavigate();
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([]);
+    const [currentEditRoom , setCurrentEditRoom] = useState({});
+
+    console.log(currentEditRoom);
+    
+
     
     const [isOpen, setIsOpen] = useState(false)
 
@@ -38,7 +43,8 @@ const adminroom = () => {
         setIsOpenEdit(false)
     }
 
-    function openModalEdit() {
+    function openModalEdit(currentRoom: any) {
+        setCurrentEditRoom(currentRoom);
         setIsOpenEdit(true)
     }
 
@@ -160,7 +166,7 @@ const adminroom = () => {
                 leaveTo="opacity-0 scale-95"
                 >
                     <Dialog.Panel>
-                    <div><Editroom/></div>
+                    <div><Editroom currentRoom={currentEditRoom}/></div>
                     </Dialog.Panel>
                     </Transition.Child>
                     </div>
@@ -197,7 +203,7 @@ const adminroom = () => {
                                     {prop.roomName}
                                 </td>
                                 <td className="py-4 px-6">
-                                    <a href="#" className="font-medium text-blue-600  hover:underline" onClick={openModalEdit}>Edit</a>
+                                    <a href="#" className="font-medium text-blue-600  hover:underline" onClick={() => openModalEdit(prop)}>Edit</a>
                                     &nbsp;&nbsp;
                                     <a href="#" className="font-medium text-blue-600  hover:underline" onClick={openModalDel}>Delet</a>
                                 </td>
