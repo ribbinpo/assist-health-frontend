@@ -8,7 +8,7 @@ interface AcccountStoreProps {
 
 const accountStore = persist<AcccountStoreProps>(
     (set) => ({
-        token:" ",
+        token:"",
         setToken: (token) => set(() => ({ token }))
     }),
     { name: 'account-store'}
