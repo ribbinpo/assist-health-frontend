@@ -1,28 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Buttonbooking, Slotclasscardio, Slotclassstrength, Slotclasssflexlity, } from 'components';
+import { Slotclasscardiobooked, Slotclassstrength, Slotclasssflexlitybooked, } from 'components';
 import axios from 'axios';
 import { useAccountStore } from 'store';
 import jwtDecode from 'jwt-decode';
 
 const mybooking = ({ id }: any) => {
     const token = useAccountStore((state) => state.token);
+    const [items, setItems] = useState([]);
+    
 
-    // async function myBooking() {
-    //     const user: {
-    //       sub: number;
-    //       username: string;
-    //       role: string;
-    //     } = jwtDecode(token);
-    //     const userId = user.sub;
-    //     const classScheduleId = id;
-    //     const res = await axios.get(
-    //       `http://localhost:8000/booking/bookClassSchdule?userId=${userId}&classScheduleId=${classScheduleId}`,
-    //     );
-    //     console.log(res.data);
-    //     setIsOpenConfirmBooking(true);
-    //     //
-    //   }
 
     useEffect(() => {
         const user: {
@@ -35,10 +22,14 @@ const mybooking = ({ id }: any) => {
             const res = await axios.get(
             `http://localhost:8000/classes/getByUserId?id=${userId}`,
             );
-            console.log(res.data);
+            setItems(res.data.classes)              
+            // console.log(res.data);
         }
         getItems();
       },[]);
+      console.log(items);
+      
+      
     
     return (
         <div>
@@ -61,62 +52,63 @@ const mybooking = ({ id }: any) => {
                 <hr></hr>
             </div>
             
-            
-            <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" quantity="1/20"/>
-            <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" quantity="5/20"/>
-            <Slotclasssflexlity slotclassname="SH`BAM~~" time="17:00-18:00" quantity="0/20"/>
-
-            {/* {.map((item: any, key) =>
-            item.classType === 'CARDIO' ? (
-          <Slotclasscardio
+            {items.map((items: any, key) =>
+        items.classType === 'CARDIO' ? (
+          <Slotclasscardiobooked
             key={key}
-            slotclassname={item.className}
-            id={item.id}
+            slotclassname={items.className}
+            id={items.id}
             time={
-              new Date(item.start_time).toLocaleTimeString([], {
+              new Date(items.start_time).toLocaleTimeString([], {
                 hour: '2-digit',
                 minute: '2-digit',
               }) &&
-              new Date(item.end_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+              new Date(items.end_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
             }
-            name={item.teacher}
-            entries={item.entries}
-            limit={item.limit}
+            name={items.teacher}
+            entries={items.entries}
+            limit={items.limit}
           />
-        ) : item.classType === 'STRENGTH' ? (
+        ) : items.classType === 'STRENGTH' ? (
           <Slotclassstrength
             key={key}
-            slotclassname={item.className}
-            id={item.id}
+            slotclassname={items.className}
+            id={items.id}
             time={
-              new Date(item.start_time).toLocaleTimeString([], {
+              new Date(items.start_time).toLocaleTimeString([], {
                 hour: '2-digit',
                 minute: '2-digit',
               }) &&
-              new Date(item.end_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+              new Date(items.end_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
             }
-            name={item.teacher}
-            entries={item.entries}
-            limit={item.limit}
+            name={items.teacher}
+            entries={items.entries}
+            limit={items.limit}
           />
-        ) : item.classType === 'FLEXLITY' ? (
-          <Slotclasssflexlity
+        ) : items.classType === 'FLEXLITY' ? (
+          <Slotclasssflexlitybooked
             key={key}
-            slotclassname={item.className}
-            id={item.id}
+            slotclassname={items.className}
+            id={items.id}
             time={
-              new Date(item.start_time).toLocaleTimeString([], {
+              new Date(items.start_time).toLocaleTimeString([], {
                 hour: '2-digit',
                 minute: '2-digit',
               }) &&
-              new Date(item.end_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+              new Date(items.end_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
             }
-            name={item.teacher}
-            entries={item.entries}
-            limit={item.limit}
+            name={items.teacher}
+            entries={items.entries}
+            limit={items.limit}
           />
         ) : null,
-      )} */}
+      )}
+            
+            {/* <Slotclassstrength slotclassname="BODYPUMP" time="08:00-09:00" quantity="1/20"/>
+            <Slotclasscardio slotclassname="STEP MOVE" time="09:00-10:00" quantity="5/20"/>
+            <Slotclasssflexlity slotclassname="SH`BAM~~" time="17:00-18:00" quantity="0/20"/> */}
+
+           
             <div className="text-[#7B787880] pl-8 pt-8">
             28/08/22 TRAINER
             </div>

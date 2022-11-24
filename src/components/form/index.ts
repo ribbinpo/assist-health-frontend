@@ -21,4 +21,6 @@ export { LabelForm } from './labelform';
 export { Confirmbooking } from './confirmbooking';
 export { Sucessbooking } from './sucessbooking';
 export { Addroom } from './addroom';
-export { Editroom } from './editroom'
+export { Editroom } from './editroom';
+export { Slotclasscardiobooked } from './slotclasscardiobooked';
+export { Slotclasssflexlitybooked} from './slotclassflexlitybooked';

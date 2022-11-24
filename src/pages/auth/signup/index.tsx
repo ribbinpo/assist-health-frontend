@@ -28,32 +28,33 @@ const authSignup = () => {
     console.log(password);
     // console.log(confirmpassword);
     console.log(email);
-    // console.log(firstname);
-    // console.log(lastname);
-    // console.log(birthday);
-    // console.log(idcard);
-    // console.log(gender);
-    // console.log(blood);
-    // console.log(country);
-    // console.log(weight);
-    // console.log(height);
-    // console.log(phonenumber);
+    console.log(firstname);
+    console.log(lastname);
+    console.log(birthday);
+    console.log(idcard);
+    console.log(gender);
+    console.log(blood);
+    console.log(country);
+    console.log(weight);
+    console.log(height);
+    console.log(phonenumber);
+
+    const birth = new Date(birthday)
 
     const signup = {
       username: username,
       password: password,
-      // confirmpassword: confirmpassword,
       email: email,
       firstName: firstname,
       lastName: lastname,
       role_id:1,
-      // birthday: birthday,
+      birthday: birth,
       passport: idcard,
-      // gender: gender,
-      // blood: blood,
-      // country: country,
-      // weight: weight,
-      // height: height,
+      gender: gender,
+      bloodType: blood,
+      country: country,
+      weight: +weight,
+      height: +height,
       phoneNumber: phonenumber
     };
     console.log(signup);
@@ -101,7 +102,7 @@ const authSignup = () => {
             />
           </div>
         </div>
-        <TextField placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <TextField placeholder="Email" email={true} value={email} onChange={(e) => setEmail(e.target.value)} />
         <div className="grid gap-4 grid-cols-2 ">
           <div>
             <TextField
@@ -135,16 +136,16 @@ const authSignup = () => {
             <p className="text-[#B0B0B0]">Gender</p>
           </div>
           <div>
-            <input type="radio" name="gender" value="male" className="rounded-xl "></input>
+            <input type="radio" name="gender" value="MALE" className="rounded-xl "></input>
             <label className="text-[#B0B0B0] pl-2">Male</label>
           </div>
           <div>
-            <input type="radio" name="gender" value="female" className="rounded-xl"></input>
+            <input type="radio" name="gender" value="FEMALE" className="rounded-xl"></input>
             <label className="text-[#B0B0B0] pl-2">Female</label>
           </div>
           <div>
             <input type="radio" name="gender" value="other" className="rounded-xl"></input>
-            <label className="text-[#B0B0B0] pl-2">Other</label>
+            <label className="text-[#B0B0B0] pl-2">OTHER</label>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
