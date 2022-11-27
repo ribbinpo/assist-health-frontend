@@ -3,7 +3,7 @@ import { AuthLogin, AuthSignup, Dashboard,
         Trainer, Mytrainer, Account, 
         Trainerschdule, BackofficeAdmin, 
         BackofficeUser, Adminclass, 
-        Viewclass, Trainermangeschedule, TrainerAccount, Trainerschedule, Test, Adminroom} from "../pages";
+        Viewclass, Trainermangeschedule, TrainerAccount, Trainerschedule, Test, Adminroom, Bmiimfo} from "../pages";
 
 export const guestRoutes = [
   {
@@ -81,6 +81,10 @@ export const guestRoutes = [
   {
     path: '/adminroom',
     element: <Adminroom />
+  },
+  {
+    path: '/bmiinfo',
+    element: <Bmiimfo />
   },
 
 ];

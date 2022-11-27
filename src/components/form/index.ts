@@ -24,3 +24,4 @@ export { Addroom } from './addroom';
 export { Editroom } from './editroom';
 export { Slotclasscardiobooked } from './slotclasscardiobooked';
 export { Slotclasssflexlitybooked} from './slotclassflexlitybooked';
+export { Buttonbooked } from './buttonbooked';

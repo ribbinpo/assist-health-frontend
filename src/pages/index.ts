@@ -10,3 +10,4 @@ export * from './trainerschdule';
 export * from './backoffice';
 export * from './backofficetrainer';
 export * from './try'
+export * from './bmiinfo'
