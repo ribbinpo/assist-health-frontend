@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Dashboard from 'assets/images/Dashboard.png';
 import Class from 'assets/images/class.png'
 import Exercise from 'assets/images/exercise.png'
@@ -13,28 +13,41 @@ import {FiArrowRight} from 'react-icons/fi';
 
 const dashboard = () => {
     const navigate = useNavigate();
-    const [weight, setWeight] = useState <any>();
-    const [height, setHeight] = useState <any>();
-    const [bmi, setBmi] = useState <any>();
-    // const [currnthelath, setCurrntHelath] = useState("");
-    // const currentBmi = bmi;
+    const [weight, setWeight] = useState <any>(0);
+    const [height, setHeight] = useState <any>(0);
+    const [bmi, setBmi] = useState <any>(0);
+    const [currnthelath, setCurrntHelath] = useState("");
 
     console.log(weight);
     console.log(height);
-    
+
     function calbmi() {
         const cal = weight / ((height / 100) * (height / 100));
         setBmi(cal.toFixed(2))
+        if (cal == 0) {
+            setCurrntHelath("fat");
+            console.log('fat');
+        } else if (cal > 0 && cal < 10){
+            setCurrntHelath("thing555555");
+            console.log('thing55555');
+        } else if (cal > 11 && cal < 40){
+            setCurrntHelath("fater555555");
+            console.log('fater5555')
+        }
     }
     
-    // if (currentBmi == 0) {
-    //     setCurrntHelath("fat");
-    // } else if (currentBmi > 0 && currentBmi < 10){
-    //     setCurrntHelath("thing555555");
-    // } else if (currentBmi > 11 && currentBmi < 40){
-    //     setCurrntHelath("fater555555");
-    // }
-
+    // useEffect(() => {
+    //     if (bmi == 0) {
+    //         setCurrntHelath("fat");
+    //         console.log('fat');
+    //     } else if (bmi > 0 && bmi < 10){
+    //         setCurrntHelath("thing555555");
+    //         console.log('thing55555');
+    //     } else if (bmi > 11 && bmi < 40){
+    //         setCurrntHelath("fater555555");
+    //         console.log('fater5555')
+    //     }
+    // }, [bmi])
     
 
        
