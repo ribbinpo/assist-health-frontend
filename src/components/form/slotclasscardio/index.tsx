@@ -91,7 +91,17 @@ const slotclasscardio = ({ slotclassname, time, name, entries, limit, id, status
                   ${entries === 0 && "w-0"}
                   ${entries === 1 && "w-2"}
                   ${entries === 2 && "w-2"}
-                  ${entries === 3 && "w-36"}`}></div>
+                  ${entries === 3 && "w-4"}
+                  ${entries === 4 && "w-4"}
+                  ${entries === 5 && "w-6"}
+                  ${entries === 6 && "w-6"}
+                  ${entries === 7 && "w-8"}
+                  ${entries === 8 && "w-8"}
+                  ${entries === 9 && "w-10"}
+                  ${entries === 10 && "w-10"}
+                  ${entries === 12 && "w-36"}
+                  ${entries === 20 && "w-100"}
+                  `}></div>
                 </div>
               </div>
               <div className="pl-2 mt-3">

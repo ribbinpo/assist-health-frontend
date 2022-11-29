@@ -1,5 +1,5 @@
 import react from 'react';
-import { Buttonbooking, Confirmbooking } from 'components';
+import { Buttonbooking, Confirmbooking, Buttonbooked } from 'components';
 import User from 'assets/images/user.png';
 import Clock from 'assets/images/clock.png';
 import Group from 'assets/images/group.png';
@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useAccountStore } from 'store';
 import jwtDecode from 'jwt-decode';
 
-const slotclasssflexlity = ({ slotclassname, time, name, entries, limit, id }: any) => {
+const slotclasssflexlity = ({ slotclassname, time, name, entries, limit, id, status }: any) => {
   const [isOpenConfirmBooking, setIsOpenConfirmBooking] = useState(false);
   const token = useAccountStore((state) => state.token);
 
@@ -87,7 +87,21 @@ const slotclasssflexlity = ({ slotclassname, time, name, entries, limit, id }: a
               </div>
               <div className="w-36">
                 <div className="w-full bg-[#D9D9D9] rounded-full mt-5">
-                  <div style={{ width: '50%' }} className="bg-[#CC1B32] h-2.5 rounded-full  "></div>
+                  <div className={`bg-[#CC1B32] h-2.5 rounded-full  
+                  ${entries === 0 && "w-0"}
+                  ${entries === 1 && "w-2"}
+                  ${entries === 2 && "w-2"}
+                  ${entries === 3 && "w-4"}
+                  ${entries === 4 && "w-4"}
+                  ${entries === 5 && "w-6"}
+                  ${entries === 6 && "w-6"}
+                  ${entries === 7 && "w-8"}
+                  ${entries === 8 && "w-8"}
+                  ${entries === 9 && "w-10"}
+                  ${entries === 10 && "w-10"}
+                  ${entries === 12 && "w-36"}
+                  ${entries === 20 && "w-100"}
+                  `}></div>
                 </div>
               </div>
               <div className="pl-2 mt-3">
@@ -95,7 +109,16 @@ const slotclasssflexlity = ({ slotclassname, time, name, entries, limit, id }: a
               </div>
             </div>
             <div className="pl-5 pr-7" onClick={openModalConfirmBooking}>
-              <Buttonbooking buttonName="BOOK THIS CLASS" />
+              {status?(
+                <>
+                <Buttonbooked buttonName='BOOKED'/>
+                </>
+              ):(
+                <>
+                <Buttonbooking buttonName='BOOK THIS CLASS'/>
+                </>
+              )
+              }
             </div>
           </div>
         </div>

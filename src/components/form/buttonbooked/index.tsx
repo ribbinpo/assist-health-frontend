@@ -8,7 +8,7 @@ type buttonProp = {
 const buttonbooked = ({ buttonName, onClick }: buttonProp) => {
     return (
         <div>
-           <button className="rounded-xl bg-red-800 hover:bg-red-500 duration-125 shadow-md mt-2 mb-2 w-50" onClick={onClick}>
+           <button className="rounded-xl bg-zinc-400 hover:bg-zinc-900 duration-125 shadow-md mt-2 mb-2 w-50" onClick={onClick}>
             <div className="text-lg text-white px-3 py-3">
                 BOOKED
             </div>

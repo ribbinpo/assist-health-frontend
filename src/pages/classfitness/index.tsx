@@ -24,11 +24,6 @@ const classfitness = () => {
   console.log(currentDate);
 
 
-
-
-
-
-
   useEffect(() => {
     const getItems = async () => {
       const response = await axios.get('http://localhost:8000/classes/getAll');

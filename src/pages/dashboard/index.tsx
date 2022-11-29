@@ -15,7 +15,7 @@ const dashboard = () => {
     const navigate = useNavigate();
     const [weight, setWeight] = useState <any>(0);
     const [height, setHeight] = useState <any>(0);
-    const [bmi, setBmi] = useState <any>(0);
+    const [bmi, setBmi] = useState <any>();
     const [currnthelath, setCurrntHelath] = useState("");
 
     console.log(weight);
@@ -25,14 +25,24 @@ const dashboard = () => {
         const cal = weight / ((height / 100) * (height / 100));
         setBmi(cal.toFixed(2))
         if (cal == 0) {
-            setCurrntHelath("fat");
-            console.log('fat');
-        } else if (cal > 0 && cal < 10){
-            setCurrntHelath("thing555555");
-            console.log('thing55555');
-        } else if (cal > 11 && cal < 40){
+            setCurrntHelath("underweight");
+            console.log('underweight');
+        } else if (cal > 0 && cal < 18){
+            setCurrntHelath("normal (healthy)");
+            console.log('normal (healthy)');
+        } else if (cal > 19 && cal < 22.90){
             setCurrntHelath("fater555555");
             console.log('fater5555')
+        }else if (cal > 23 && cal < 24){
+            setCurrntHelath("Chubby / Obesity Level 1");
+            console.log('Chubby / Obesity Level 1')
+        }
+        else if (cal > 25 && cal < 29){
+            setCurrntHelath("Obesity / Obesity Level 2");
+            console.log('Obesity / Obesity Level 2')
+        }else if (cal > 30){
+            setCurrntHelath("Very obese / Grade 3 obesity");
+            console.log('Very obese / Grade 3 obesity')
         }
     }
     
@@ -91,7 +101,7 @@ const dashboard = () => {
                             <div className='pl-2'>
                             <button className="hover:bg-red-900 text-white bg-red-800 font-semibold hover:text-white py-1 px-8   border-red-500 hover:border-white border-2 hover:border-transparent rounded"
                             onClick={calbmi}>
-                                Button
+                                Calculate
                                 </button>
                             </div>
                         </div>
@@ -100,6 +110,7 @@ const dashboard = () => {
                                     <div className='grid justify-items-center '>
                                         <div className='text-3xl font-medium'>BMI</div>
                                         <div  className='text-5xl font-bold'>{bmi}</div>
+                                        <div className='text-3xl font-medium pt-2'>{currnthelath}</div>
                                         <div className=' pt-5'><button className=" flex hover:bg-red-900 text-white bg-red-800 font-semibold hover:text-white py-1 px-8   border-red-500 hover:border-white border-2 hover:border-transparent rounded"
                                         onClick={calbmi}>
                                             See more <div className='hover:animate-ping pl-2'onClick={() => { navigate('/bmiinfo'); }}><FiArrowRight size={28}/></div>
