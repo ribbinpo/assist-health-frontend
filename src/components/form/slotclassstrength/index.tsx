@@ -1,5 +1,5 @@
 import react from 'react';
-import { TextField, Button, Buttonbooking, Confirmbooking } from 'components';
+import { TextField, Buttonbooked, Buttonbooking, Confirmbooking } from 'components';
 import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import User from 'assets/images/user.png';
@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useAccountStore } from 'store';
 import jwtDecode from 'jwt-decode';
 
-const slotclassstrength = ({ slotclassname, time, name, entries, limit, id }: any) => {
+const slotclassstrength = ({ slotclassname, time, name, entries, limit, id, status }: any) => {
   const [isOpenConfirmBooking, setIsOpenConfirmBooking] = useState(false);
   const token = useAccountStore((state) => state.token);
 
@@ -110,7 +110,15 @@ const slotclassstrength = ({ slotclassname, time, name, entries, limit, id }: an
               </div>
             </div>
             <div className="pl-5 pr-7" onClick={openModalConfirmBooking}>
-              <Buttonbooking buttonName="BOOK THIS CLASS" />
+              {status?(
+                <>
+                <Buttonbooked buttonName='BOOKED'/>
+                </>
+              ):(
+                <>
+                <Buttonbooking buttonName="BOOK THIS CLASS" />
+                </>
+              )}
             </div>
           </div>
         </div>

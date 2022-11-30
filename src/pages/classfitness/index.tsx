@@ -5,6 +5,8 @@ import { Slotclasscardio, Slotclassstrength, Slotclasssflexlity } from 'componen
 import Arrow from 'assets/images/arrow.png';
 import Booking from 'assets/images/booking.png';
 import axios from 'axios';
+import { useAccountStore } from 'store';
+import jwtDecode from 'jwt-decode';
 
 enum CLASSTYPE {
   ALL,
@@ -20,8 +22,12 @@ const classfitness = () => {
   const [filteredItems, setFilteredItems] = useState([]);
   const [currentClassType, setCurrentClassType] = useState(CLASSTYPE.ALL);
   const [currentDate, setCurrentDate] = useState("");
+  const token = useAccountStore((state) => state.token);
+  const [userdata, setUserData] = useState<any>([])
 
-  console.log(currentDate);
+  // console.log(currentDate);
+
+  
 
 
   useEffect(() => {
@@ -33,7 +39,7 @@ const classfitness = () => {
     getItems();
   }, []);
 
-  console.log(filteredItems);
+  // console.log(filteredItems);
 
   useEffect(() => {
     // console.log(`currentClassType: ${currentClassType}`);
@@ -50,7 +56,30 @@ const classfitness = () => {
     }
   }, [currentClassType, items]);
 
+  useEffect(() => {
+    const getdata = async() => {
+      const user: {
+        sub: number;
+        username: string;
+        role: string;
+      } = jwtDecode(token);
+      const userId = user.sub;
+      const res = await axios.get(`http://localhost:8000/classes/getByUserId?id=${userId}`)
+      // console.log(res.data);
+      setUserData(res.data.classes)
+    }
+    getdata()
 
+  },[])
+
+
+
+  console.log(userdata);
+  
+  userdata.map((prop:any) => {
+    console.log(prop);
+    
+  })
 
   return (
     <div>
@@ -141,7 +170,7 @@ const classfitness = () => {
             name={item.teacher}
             entries={item.entries}
             limit={item.limit}
-            status={item.status}
+            status={userdata.status}
           />
         ) : item.classType === 'STRENGTH' ? (
           <Slotclassstrength
@@ -158,7 +187,7 @@ const classfitness = () => {
             name={item.teacher}
             entries={item.entries}
             limit={item.limit}
-            status={item.status}
+            status={userdata.status}
           />
         ) : item.classType === 'FLEXLITY' ? (
           <Slotclasssflexlity
@@ -175,7 +204,7 @@ const classfitness = () => {
             name={item.teacher}
             entries={item.entries}
             limit={item.limit}
-            status={item.status}
+            status={userdata.status}
           />
         ) : null,
       )}

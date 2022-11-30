@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useAccountStore } from 'store';
 import jwtDecode from 'jwt-decode';
 
-const slotclasscardio = ({ slotclassname, time, name, entries, limit, id, status }: any) => {
+const slotclasscardio = ({ slotclassname, time, name, entries, limit, id, status , idclass}: any) => {
   const [isOpenConfirmBooking, setIsOpenConfirmBooking] = useState(false);
   const token = useAccountStore((state) => state.token);
 
@@ -28,9 +28,30 @@ const slotclasscardio = ({ slotclassname, time, name, entries, limit, id, status
     const res = await axios.get(
       `http://localhost:8000/booking/bookClassSchdule?userId=${userId}&classScheduleId=${classScheduleId}`,
     );
-    console.log(res.data);
+    console.log(res.data.classSchedule.status);
     setIsOpenConfirmBooking(true);
   }
+
+  // useEffect(() => {
+  //   const getdata = async() => {
+  //     const user: {
+  //       sub: number;
+  //       username: string;
+  //       role: string;
+  //     } = jwtDecode(token);
+  //     const userId = user.sub;
+  //     const res = await axios.get(`http://localhost:8000/classes/getByUserId?id=${userId}`)
+  //     console.log(res.data);
+      
+  //   }
+  //   getdata()
+
+  // },[])
+  console.log(id);
+  console.log(idclass);
+  
+  
+  
 
   return (
     <div>
