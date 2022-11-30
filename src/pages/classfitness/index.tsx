@@ -72,15 +72,6 @@ const classfitness = () => {
 
   },[])
 
-
-
-  console.log(userdata);
-  
-  userdata.map((prop:any) => {
-    console.log(prop);
-    
-  })
-
   return (
     <div>
       <div>
@@ -153,9 +144,11 @@ const classfitness = () => {
       <div className="pb-5">
         <hr className="h-1 bg-[#8D8888]"></hr>
       </div>
-
-      {filteredItems.filter((filter: { start_time: string }) => filter.start_time.includes(currentDate)).map((item: any, key) =>
-        item.classType === 'CARDIO' ? (
+      {filteredItems.filter((filter: { start_time: string }) => filter.start_time.includes(currentDate)).map((item: any, key) => {
+        console.log(filteredItems);
+        const status = userdata.find((data: any) => data.id === item.id);
+        console.log(status);
+        return item.classType === "CARDIO" ? (
           <Slotclasscardio
             key={key}
             slotclassname={item.className}
@@ -170,7 +163,7 @@ const classfitness = () => {
             name={item.teacher}
             entries={item.entries}
             limit={item.limit}
-            status={userdata.status}
+            status={status}
           />
         ) : item.classType === 'STRENGTH' ? (
           <Slotclassstrength
@@ -187,7 +180,7 @@ const classfitness = () => {
             name={item.teacher}
             entries={item.entries}
             limit={item.limit}
-            status={userdata.status}
+            status={status}
           />
         ) : item.classType === 'FLEXLITY' ? (
           <Slotclasssflexlity
@@ -204,10 +197,10 @@ const classfitness = () => {
             name={item.teacher}
             entries={item.entries}
             limit={item.limit}
-            status={userdata.status}
+            status={status}
           />
-        ) : null,
-      )}
+        ) : <div />
+      })}
 
       <div className="absolute right-0 p-8">
         <button
