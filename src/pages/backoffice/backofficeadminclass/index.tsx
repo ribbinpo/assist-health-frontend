@@ -11,6 +11,9 @@ const adminclass = () => {
     const [items, setItems] = useState([])
 
     const [isOpen, setIsOpen] = useState(false)
+
+    console.log(items);
+    
   
     function closeModal() {
       setIsOpen(false)
@@ -42,12 +45,21 @@ const adminclass = () => {
 
     useEffect(() => {
         const getItems = async () => {
+            
             const response = await axios.get("http://localhost:8000/classes/getAll")
             const data = response.data
             setItems(data)
         }
         getItems()
+        
+        
     },[])
+    
+    // async function delclass() {
+    //     const res = await axios.delete(
+    //         `http://localhost:8000/classes/${items.id}`
+    //     )
+    // }
     
     
     

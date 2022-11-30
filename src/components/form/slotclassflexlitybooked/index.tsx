@@ -8,13 +8,24 @@ import { Dialog, Transition } from '@headlessui/react';
 import axios from 'axios';
 import { useAccountStore } from 'store';
 import jwtDecode from 'jwt-decode';
+import { AiTwotoneCalendar } from "react-icons/ai";
 
-const slotclasssflexlitybooked= ({ slotclassname, time, name, entries, limit, id }: any) => {
+const slotclasssflexlitybooked= ({ slotclassname, date, time, name, entries, limit, id }: any) => {
   const [isOpenConfirmBooking, setIsOpenConfirmBooking] = useState(false);
   const token = useAccountStore((state) => state.token);
 
-  function closeModaConfirmBooking() {
-    setIsOpenConfirmBooking(false);
+  async function cancelClass() {
+    const user: {
+      sub: number;
+      username: string;
+      role: string;
+    } = jwtDecode(token);
+    const userId = user.sub;
+    const classScheduleId = id;
+    const res = await axios.get(
+      `http://localhost:8000/booking/bookClassSchduleCancel?userId=${userId}&classScheduleId=${classScheduleId}`
+    );
+    console.log(res.data.classSchedule.status);
   }
 
   return (
@@ -23,6 +34,12 @@ const slotclasssflexlitybooked= ({ slotclassname, time, name, entries, limit, id
         <div className="bg-[#74B5F1] rounded-xl drop-shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 hover:bg-sky-500 duration-300">
           <div className="items-center flex justify-between ">
             <div className="text-black pl-5 font-bold">{slotclassname}</div>
+            <div className="text-black pl-5 flex">
+              <div className="w-8 pr-2 justify-items-center">
+                <AiTwotoneCalendar size={24}/>
+              </div>
+              {date}
+            </div>
             <div className="text-black pl-5 flex">
               <div className="w-8 pr-2 justify-items-center">
                 <img src={Clock} className="" />
@@ -46,7 +63,7 @@ const slotclasssflexlitybooked= ({ slotclassname, time, name, entries, limit, id
                 {entries}/{limit}
               </div>
             </div>
-            <div className="pl-5 pr-7">
+            <div className="pl-5 pr-7" onClick={cancelClass}>
               <Buttoncancel buttonName="CANCEL" />
             </div>
           </div>

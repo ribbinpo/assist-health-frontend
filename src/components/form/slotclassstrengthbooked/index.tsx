@@ -8,10 +8,25 @@ import Group from 'assets/images/group.png';
 import axios from 'axios';
 import { useAccountStore } from 'store';
 import jwtDecode from 'jwt-decode';
+import { AiTwotoneCalendar } from "react-icons/ai";
 
-const slotclassstrength = ({ slotclassname, time, name, entries, limit, id }: any) => {
+const slotclassstrengthbooked = ({ slotclassname, date, time, name, entries, limit, id }: any) => {
   const [isOpenConfirmBooking, setIsOpenConfirmBooking] = useState(false);
   const token = useAccountStore((state) => state.token);
+
+  async function cancelClass() {
+    const user: {
+      sub: number;
+      username: string;
+      role: string;
+    } = jwtDecode(token);
+    const userId = user.sub;
+    const classScheduleId = id;
+    const res = await axios.get(
+      `http://localhost:8000/booking/bookClassSchduleCancel?userId=${userId}&classScheduleId=${classScheduleId}`
+    );
+    console.log(res.data.classSchedule.status);
+  }
  
   return (
     <div>
@@ -19,6 +34,12 @@ const slotclassstrength = ({ slotclassname, time, name, entries, limit, id }: an
         <div className="bg-[#F17474]  rounded-xl drop-shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 hover:bg-red-500 duration-300">
           <div className="items-center flex justify-between ">
             <div className="text-black pl-5 font-bold">{slotclassname}</div>
+            <div className="text-black pl-5 flex">
+              <div className="w-8 pr-2 justify-items-center">
+                <AiTwotoneCalendar size={24}/>
+              </div>
+              {date}
+            </div>
             <div className="text-black pl-5 flex">
               <div className="w-8 pr-2 justify-items-center">
                 <img src={Clock} className="" />
@@ -42,7 +63,7 @@ const slotclassstrength = ({ slotclassname, time, name, entries, limit, id }: an
                 {entries}/{limit}
               </div>
             </div>
-            <div className="pl-5 pr-7">
+            <div className="pl-5 pr-7" onClick={cancelClass}>
               <Buttoncancel buttonName="CANCEL" />
             </div>
           </div>
@@ -52,4 +73,4 @@ const slotclassstrength = ({ slotclassname, time, name, entries, limit, id }: an
   );
 };
 
-export { slotclassstrength as Slotclassstrength };
+export { slotclassstrengthbooked as Slotclassstrengthbooked };
