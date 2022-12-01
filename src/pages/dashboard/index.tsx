@@ -28,11 +28,11 @@ const dashboard = () => {
             setCurrntHelath("underweight");
             console.log('underweight');
         } else if (cal > 0 && cal < 18){
-            setCurrntHelath("normal (healthy)");
+            setCurrntHelath("underweigh");
             console.log('normal (healthy)');
         } else if (cal > 19 && cal < 22.90){
-            setCurrntHelath("fater555555");
-            console.log('fater5555')
+            setCurrntHelath("normal (healthy)");
+            console.log('normal (healthy)')
         }else if (cal > 23 && cal < 24){
             setCurrntHelath("Chubby / Obesity Level 1");
             console.log('Chubby / Obesity Level 1')

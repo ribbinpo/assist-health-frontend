@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { Country } from 'assets/data/country';
 import Edit from 'assets/images/edit.png';
 
-interface Props {
-  currentUser: any
-}
+// interface Props {
+//   currentUser: any
+// }
 
-const edituser: React.FC<Props> = ({currentUser}) => {
+const edituser: React.FC<any> = ({currentUser}) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(currentUser.username);
   const [password, setPassword] = useState(currentUser.password);

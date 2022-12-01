@@ -5,12 +5,20 @@ import { Addclass, Editclass, Del } from 'components';
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react'
 
+
+// interface navigatefunction {
+//     (
+//         to:To,
+//         option?:{replace?:boolean,state?:any}
+//     ): void
+// }
 const adminclass = () => {
 
     const router = useNavigate();
     const [items, setItems] = useState([])
 
     const [isOpen, setIsOpen] = useState(false)
+    const [curentdelclass, setCurentdelclass] = useState({})
 
     console.log(items);
     
@@ -39,7 +47,8 @@ const adminclass = () => {
         setIsOpenDel(false)
     }
   
-    function openModalDel() {
+    function openModalDel(currentUser: any) {
+        setCurentdelclass(currentUser)
         setIsOpenDel(true)
     }
 
@@ -53,6 +62,8 @@ const adminclass = () => {
         getItems()
         
         
+        
+        
     },[])
     
     // async function delclass() {
@@ -60,7 +71,6 @@ const adminclass = () => {
     //         `http://localhost:8000/classes/${items.id}`
     //     )
     // }
-    
     
     
     return(
@@ -172,7 +182,7 @@ const adminclass = () => {
                 leaveTo="opacity-0 scale-95"
                 >
                     <Dialog.Panel>
-                    <div><Del/></div>
+                    <div><Del currentUser={curentdelclass} /></div>
                     </Dialog.Panel>
                     </Transition.Child>
                     </div>
@@ -243,13 +253,13 @@ const adminclass = () => {
                                     {prop.limit}
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                <button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass");}}>View</button>
+                                <button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass",{state: prop.id });}}>View</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
                                 <button className="rounded-lg bg-[#fff41c] px-8"  onClick={openModalEdit} >Edit</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                  <button className="rounded-lg bg-red-600 px-5"  onClick={openModalDel} >Delete</button>
+                                  <button className="rounded-lg bg-red-600 px-5"  onClick={() =>openModalDel(prop)} >Delete</button>
                                 </td>
                                 
                             </tr>

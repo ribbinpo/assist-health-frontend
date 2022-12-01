@@ -23,7 +23,7 @@ const navbar = () => {
                 <div className='pr-8  text-white cursor-pointer opacity-75 hover:opacity-100' onClick={() => {navigate('/account')}}>Account</div>
                 <div className='pr-8  text-white cursor-pointer opacity-75 hover:opacity-100' onClick={() => {navigate('/classfitness')}}>Class</div>
                 <div className='pr-8  text-white cursor-pointer opacity-75 hover:opacity-100' onClick={() => {navigate('/exercise')}}>Exercise</div>
-                <div className='pr-8  text-white cursor-pointer opacity-75 hover:opacity-100' onClick={() => {navigate('/mytrainer')}}>My trainer</div>
+                <div className='pr-8  text-white cursor-pointer opacity-75 hover:opacity-100' onClick={() => {navigate('/trainer')}}>My trainer</div>
                 <div className='pr-8  text-white cursor-pointer opacity-75 hover:opacity-100' onClick={() => {navigate('/mybooking')}}>My booking</div>
                 <div className='pr-8  text-white cursor-pointer opacity-75 hover:opacity-100' onClick={logout}>Log out</div>
                 </div>

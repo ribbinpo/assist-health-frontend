@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { ReducerAction, useEffect, useState } from 'react';
 import { Sidebar } from "components";
-import { useNavigate, useRoutes } from 'react-router-dom';
+import { useLocation, useNavigate, useRoutes } from 'react-router-dom';
 import User from 'assets/images/user.png';
 import Arrow from 'assets/images/arrow.png'
+import axios from 'axios';
 
-const viewclass = () => {
+const Viewclass = ({ data }: any) => {
     const router = useNavigate();
     const navigate = useNavigate();
+    const { state } = useLocation();
+    const [items, setItems] = useState<any>([])
+
+
+    // console.log('state: ', state);
+    
+    // console.log(data);
+    useEffect(() => {
+        const getItems = async () => {
+            console.log(state);
+            if (state) {
+                const response = await axios.get(`http://localhost:8000/classes/getById?id=${state}`);
+                const data = response.data
+                setItems(data.users)
+            }
+        }
+        getItems()  
+        
+    },[])
+    
+    
+    
     return (
         <div className="flex">
             <Sidebar />
@@ -20,7 +43,7 @@ const viewclass = () => {
                             </div>
                             <div className='flex justify-between'>
                                 <div className="mt-1 text-3xl font-semibold text-gray-900">
-                                    3
+                                    {items.length}
                                 </div>
                                 <div><img src={User} className="w-8" /></div>
                             </div>
@@ -52,21 +75,25 @@ const viewclass = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                                    <tr className="bg-white border-b">
-                                        <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                            1
-                                        </th>
-                                        <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                                            Nattapong bunchokying
-                                        </td>
-                                        <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                                            0887827071
-                                        </td>
-                                        <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                                            confirm
-                                        </td>
-                                    </tr>
+                                { items.map((prop:any, i:React.Key) => (
+                                    
+                                    <tr key={i} className="bg-white border-b">
+                                    <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                        {prop.id}
+                                    </th>
+                                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                        {prop.firstName}
+                                    </td>
+                                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                        {prop.phoneNumber}
+                                    </td>
+                                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                        confirm
+                                    </td>
+                                </tr>
+                                 
+                            
+                                ))
                                 }
                             </tbody>
                         </table>
@@ -83,4 +110,4 @@ const viewclass = () => {
     )
 };
 
-export { viewclass as Viewclass };
+export { Viewclass as Viewclass };
