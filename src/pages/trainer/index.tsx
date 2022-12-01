@@ -2,7 +2,7 @@ import react from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Bgtrainer from 'assets/images/bgtrainer.png';
 import { TextField, Button, Buttoncancel, Topictrainer } from 'components';
-import Julie from 'assets/images/julie.png';
+import Julie from 'assets/images/julie.jpg';
 
 const trainer = () => {
   const navigate = useNavigate();
@@ -54,10 +54,10 @@ const trainer = () => {
             <img src={Julie} className="pt-8 pb-8 pl-8 w-60 h-108 " />
           </div>
           <div className="pt-8  text-3xl font-bold text-red-800">
-            JULIE
-            <div className="pt-2 pr-4 text-xl font-semibold text-black ">KANOKWAN SRINONGWA</div>
+            AIT
+            <div className="pt-2 pr-4 text-xl font-semibold text-black ">RONNAKRON SANYEE</div>
             <div className="pt-1 pr-4 text-xl font-medium text-red-800 ">
-              Professional<div className="inline text-black font-light">: Trainer (Level-2)</div>
+              Professional<div className="inline text-black font-light">: Trainer (Level-3)</div>
             </div>
             <Topictrainer topicName="Special Skills" />
             <div className="list-disc pt-1 pr-4 text-lg font-light text-black">
@@ -86,9 +86,9 @@ const trainer = () => {
           </div>
           <div className="pt-8  text-3xl font-bold text-red-800">
             JULIE
-            <div className="pt-2 pr-4 text-xl font-semibold text-black ">KANOKWAN SRINONGWA</div>
+            <div className="pt-2 pr-4 text-xl font-semibold text-black ">TEERAWUT SAYSIM</div>
             <div className="pt-1 pr-4 text-xl font-medium text-red-800 ">
-              Professional<div className="inline text-black font-light">: Trainer (Level-2)</div>
+              Professional<div className="inline text-black font-light">: Trainer (Level-1)</div>
             </div>
             <Topictrainer topicName="Special Skills" />
             <div className="list-disc pt-1 pr-4 text-lg font-light text-black">

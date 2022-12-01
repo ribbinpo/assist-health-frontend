@@ -100,7 +100,7 @@ const trainermangeschedule = () => {
             </Transition>
 
             <div  className="w-full">
-                <div  className="flex justify-between">
+                <div  className="flex justify-between pb-8">
                 <div  className="text-5xl ml-5 pt-8 font-bold pl-2">Mange Schedule</div>
                 <button type="button"
                 // onClick={openModal} 
@@ -109,9 +109,7 @@ const trainermangeschedule = () => {
                  </button>
                 </div>
 
-                <div  className="py-9 pl-5">
-                <input type="date" className="form-input rounded-md w-36 border-slate-CCCCCC bg-[#F2F2F2] b"/>
-                </div>
+               
                 <div  className="px-5 ">
                 <hr></hr>
                 </div>
@@ -141,7 +139,7 @@ const trainermangeschedule = () => {
                     <tbody>
                         <tr  className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th scope="row"  className="py-4 px-6">
-                                Nattapong
+                                Julie
                             </th>
                             <td  className="py-4 px-6">
                                 08:00
@@ -158,7 +156,41 @@ const trainermangeschedule = () => {
                         </tr>
                         <tr  className="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row"  className="py-4 px-6">
-                                Nattapong
+                                julie
+                            </th>
+                            <td  className="py-4 px-6">
+                                09:00
+                            </td>
+                            <td  className="py-4 px-6">
+                                10:00
+                            </td>
+                            <td  className="py-4 px-6">
+                                Available
+                            </td>
+                            <td  className="py-4 px-6">
+                                <a href="#"  className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            </td>
+                        </tr>
+                        <tr  className="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"  className="py-4 px-6">
+                                julie
+                            </th>
+                            <td  className="py-4 px-6">
+                                10:00
+                            </td>
+                            <td  className="py-4 px-6">
+                                11:00
+                            </td>
+                            <td  className="py-4 px-6">
+                                Available
+                            </td>
+                            <td  className="py-4 px-6">
+                                <a href="#"  className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            </td>
+                        </tr>
+                        <tr  className="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"  className="py-4 px-6">
+                                julie
                             </th>
                             <td  className="py-4 px-6">
                                 09:30
@@ -173,6 +205,7 @@ const trainermangeschedule = () => {
                                 <a href="#"  className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             </td>
                         </tr>
+                        
                     </tbody>
                 </table>
             </div>

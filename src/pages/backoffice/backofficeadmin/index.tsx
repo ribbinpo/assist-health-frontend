@@ -19,7 +19,7 @@ const backofficeAdmin = () => {
                     </div>
                     <div className='flex justify-between'>
                         <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            19
+                            3
                         </div>
                         <div><img src={ User } className="w-8" /></div>
                     </div>
@@ -30,7 +30,7 @@ const backofficeAdmin = () => {
                     </div>
                     <div className='flex justify-between'>
                         <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            13
+                            2
                         </div>
                         <div><img src={ User } className="w-8" /></div>
                     </div>
@@ -41,7 +41,7 @@ const backofficeAdmin = () => {
                     </div>
                     <div className='flex justify-between'>
                         <div className="mt-1 text-3xl font-semibold text-gray-900">
-                            2,999
+                            25
                         </div>
                         <div><img src={ User } className="w-8" /></div>
                     </div>

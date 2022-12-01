@@ -27,7 +27,7 @@ const classfitness = () => {
 
   // console.log(currentDate);
 
-  
+
 
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const classfitness = () => {
   }, [currentClassType, items]);
 
   useEffect(() => {
-    const getdata = async() => {
+    const getdata = async () => {
       const user: {
         sub: number;
         username: string;
@@ -70,7 +70,7 @@ const classfitness = () => {
     }
     getdata()
 
-  },[])
+  }, [])
 
   return (
     <div>

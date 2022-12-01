@@ -26,3 +26,5 @@ export { Slotclasscardiobooked } from './slotclasscardiobooked';
 export { Slotclasssflexlitybooked} from './slotclassflexlitybooked';
 export { Slotclassstrengthbooked } from './slotclassstrengthbooked'
 export { Buttonbooked } from './buttonbooked';
+export { Slottrainerbooked } from './Slottrainerbooked';
+export { Historyslot } from './historyslot'

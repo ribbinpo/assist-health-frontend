@@ -19,6 +19,7 @@ const adminclass = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [curentdelclass, setCurentdelclass] = useState({})
+    const [curentEditUesr , setCurentEditUesr] = useState({});
 
     console.log(items);
     
@@ -37,7 +38,8 @@ const adminclass = () => {
       setIsOpenEdit(false)
     }
   
-    function openModalEdit() {
+    function openModalEdit(currentUsers:any) {
+        setCurentEditUesr(currentUsers);
       setIsOpenEdit(true)
     }
 
@@ -149,7 +151,7 @@ const adminclass = () => {
                 leaveTo="opacity-0 scale-95"
                 >
                     <Dialog.Panel>
-                    <div><Editclass/></div>
+                    <div><Editclass currentUsers={curentEditUesr}/></div>
                     </Dialog.Panel>
                     </Transition.Child>
                     </div>
@@ -256,7 +258,7 @@ const adminclass = () => {
                                 <button className="rounded-lg bg-[#00B11C] px-8" onClick={()=>{router("/viewclass",{state: prop.id });}}>View</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
-                                <button className="rounded-lg bg-[#fff41c] px-8"  onClick={openModalEdit} >Edit</button>
+                                <button className="rounded-lg bg-[#fff41c] px-8"  onClick={() => openModalEdit(prop)} >Edit</button>
                                 </td>
                                 <td className="py-4 px-3 font-medium text-gray-900 whitespace-nowrap">
                                   <button className="rounded-lg bg-red-600 px-5"  onClick={() =>openModalDel(prop)} >Delete</button>

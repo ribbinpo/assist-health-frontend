@@ -100,10 +100,7 @@ const trainerschedule = () => {
         </Transition>
 
         <div  className="w-full">
-            <div  className="text-5xl ml-5 pt-8 font-bold pl-2">Booking Schedule</div>
-            <div  className="py-9 pl-5">
-            <input type="date" className="form-input rounded-md w-36 border-slate-CCCCCC bg-[#F2F2F2] b"/>
-            </div>
+            <div  className="text-5xl ml-5 pt-8 font-bold pl-2 pb-8">Booking Schedule</div>
             <div  className="px-5 ">
             <hr></hr>
             </div>
@@ -139,28 +136,7 @@ const trainerschedule = () => {
                             Nattapong
                         </th>
                         <td  className="py-4 px-6">
-                            20/10/2022
-                        </td>
-                        <td  className="py-4 px-6">
-                            08:00
-                        </td>
-                        <td  className="py-4 px-6">
-                            09:00
-                        </td>
-                        <td  className="py-4 px-6">
-                            0887827071
-                        </td>
-                        <td  className="py-4 px-6">
-                            Available
-                        </td>
-                        
-                    </tr>
-                    <tr  className="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row"  className="py-4 px-6">
-                            Nattapong
-                        </th>
-                        <td  className="py-4 px-6">
-                            20/10/2022
+                            02/12/2022
                         </td>
                         <td  className="py-4 px-6">
                             08:00

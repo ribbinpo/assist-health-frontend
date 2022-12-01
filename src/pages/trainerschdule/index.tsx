@@ -4,10 +4,13 @@ import { useAccountStore } from 'store';
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { useNavigate } from 'react-router-dom';
+import Booking from 'assets/images/booking.png';
 
 const trainerschdule = () => {
     const token = useAccountStore((state) => state.token);
     const { state } = useLocation();
+    const navigate = useNavigate();
     const onBooking = (_start: string, _end: string) => {
         const user: {
             sub: number;
@@ -28,10 +31,25 @@ const trainerschdule = () => {
     }
     return (
         <div>
-        <div className="text-5xl ml-5 pt-8 font-bold pl-2">BOOKING TRAINER</div>
+        <div className="flex justify-between"> 
+            <div className="text-5xl ml-5 pt-8 font-bold pl-2">BOOKING TRAINER</div>
+            <div className="pr-8 pt-8">
+            <button
+          className="w-45 border-2 rounded-md border-[#9D9A9A] bg-[#F5F5F5] text-[#5E5454] shadow-md p-3 px-4 flex 
+                hover:-translate-y-1 hover:scale-103 hover:bg-[#DBDBDB] duration-300 hover:border-[#606060]"
+          onClick={() => {
+            navigate('/mybooking');
+          }}>
+          <div className="w-10 pr-4">
+            <img src={Booking} className="" />
+          </div>
+          MY BOOKING
+        </button>
+            </div>
+        </div>
         <div className="px-8">
         <div className="py-6">
-            <input type="date"className="form-input rounded-md w-36 border-slate-CCCCCC bg-[#F2F2F2]"/>
+            
         </div>
                 <hr></hr>
         </div>
