@@ -32,7 +32,7 @@ const classfitness = () => {
 
   useEffect(() => {
     const getItems = async () => {
-      const response = await axios.get('http://localhost:8000/classes/getAll');
+      const response = await axios.get('http://146.190.92.231/classes/getAll');
       const data = response.data;
       setItems(data);
     };
@@ -64,7 +64,7 @@ const classfitness = () => {
         role: string;
       } = jwtDecode(token);
       const userId = user.sub;
-      const res = await axios.get(`http://localhost:8000/classes/getByUserId?id=${userId}`)
+      const res = await axios.get(`http://146.190.92.231/classes/getByUserId?id=${userId}`)
       // console.log(res.data);
       setUserData(res.data.classes)
     }

@@ -55,7 +55,7 @@ const backofficeuser = () => {
 
     useEffect(() => {
         const getData = async () => {
-            await axios.get("http://localhost:8000/users", {
+            await axios.get("http://146.190.92.231/users", {
                 headers: { Authorization: bearer }
             }).then(res => {
                 setData(res.data)

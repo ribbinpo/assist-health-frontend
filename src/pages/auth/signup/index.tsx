@@ -59,7 +59,7 @@ const authSignup = () => {
     };
     console.log(signup);
 
-    await axios.post("http://localhost:8000/auth/signup",signup)
+    await axios.post("http://146.190.92.231/auth/signup",signup)
     .then(res => {
       console.log("success");
       navigate('/auth/login')

@@ -26,7 +26,7 @@ const slotclasscardio = ({ slotclassname, time, name, entries, limit, id, status
     const userId = user.sub;
     const classScheduleId = id;
     const res = await axios.get(
-      `http://localhost:8000/booking/bookClassSchdule?userId=${userId}&classScheduleId=${classScheduleId}`,
+      `http://146.190.92.231/booking/bookClassSchdule?userId=${userId}&classScheduleId=${classScheduleId}`,
     );
     console.log(res.data.classSchedule.status);
     setIsOpenConfirmBooking(true);
@@ -40,7 +40,7 @@ const slotclasscardio = ({ slotclassname, time, name, entries, limit, id, status
   //       role: string;
   //     } = jwtDecode(token);
   //     const userId = user.sub;
-  //     const res = await axios.get(`http://localhost:8000/classes/getByUserId?id=${userId}`)
+  //     const res = await axios.get(`http://146.190.92.231/classes/getByUserId?id=${userId}`)
   //     console.log(res.data);
       
   //   }

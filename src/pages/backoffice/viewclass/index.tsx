@@ -19,7 +19,7 @@ const Viewclass = ({ data }: any) => {
         const getItems = async () => {
             console.log(state);
             if (state) {
-                const response = await axios.get(`http://localhost:8000/classes/getById?id=${state}`);
+                const response = await axios.get(`http://146.190.92.231/classes/getById?id=${state}`);
                 const data = response.data
                 setItems(data.users)
             }

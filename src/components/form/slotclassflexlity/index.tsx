@@ -26,7 +26,7 @@ const slotclasssflexlity = ({ slotclassname, time, name, entries, limit, id, sta
     const userId = user.sub;
     const classScheduleId = id;
     const res = await axios.get(
-      `http://localhost:8000/booking/bookClassSchdule?userId=${userId}&classScheduleId=${classScheduleId}`,
+      `http://146.190.92.231/booking/bookClassSchdule?userId=${userId}&classScheduleId=${classScheduleId}`,
     );
     console.log(res.data);
     setIsOpenConfirmBooking(true);

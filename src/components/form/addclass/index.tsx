@@ -52,7 +52,7 @@ const addclass = () => {
     }
     console.log(addclass);
 
-    axios.post("http://localhost:8000/classes/create",addclass)
+    axios.post("http://146.190.92.231/classes/create",addclass)
     .then(res => {
         console.log(res);
         navigate('/adminclass')

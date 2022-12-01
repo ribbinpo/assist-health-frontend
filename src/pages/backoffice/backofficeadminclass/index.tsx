@@ -57,7 +57,7 @@ const adminclass = () => {
     useEffect(() => {
         const getItems = async () => {
             
-            const response = await axios.get("http://localhost:8000/classes/getAll")
+            const response = await axios.get("http://146.190.92.231/classes/getAll")
             const data = response.data
             setItems(data)
         }
@@ -70,7 +70,7 @@ const adminclass = () => {
     
     // async function delclass() {
     //     const res = await axios.delete(
-    //         `http://localhost:8000/classes/${items.id}`
+    //         `http://146.190.92.231/classes/${items.id}`
     //     )
     // }
     

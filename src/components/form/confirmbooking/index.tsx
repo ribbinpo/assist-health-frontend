@@ -14,7 +14,7 @@ const confirmbooking = () => {
 
   
   async function closeModalSucessBooking() {
-        const response = await axios.post("http://localhost:8000/")
+        const response = await axios.post("http://146.190.92.231:8000/")
       setIsOpenSucessBooking(false)
   }
   function openModalSucessBooking() {

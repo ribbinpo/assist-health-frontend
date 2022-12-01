@@ -23,7 +23,7 @@ const slotclassstrengthbooked = ({ slotclassname, date, time, name, entries, lim
     const userId = user.sub;
     const classScheduleId = id;
     const res = await axios.get(
-      `http://localhost:8000/booking/bookClassSchduleCancel?userId=${userId}&classScheduleId=${classScheduleId}`
+      `http://146.190.92.231/booking/bookClassSchduleCancel?userId=${userId}&classScheduleId=${classScheduleId}`
     );
     console.log(res.data.classSchedule.status);
   }

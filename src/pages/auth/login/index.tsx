@@ -26,7 +26,7 @@ function authLogin() {
     console.log(user);
     
 
-     axios.post("http://localhost:8000/auth/signin",user)
+     axios.post("http://146.190.92.231/auth/signin",user)
     .then((response) => {
       const access_token = response?.data?.access_token;
       setToken(access_token);

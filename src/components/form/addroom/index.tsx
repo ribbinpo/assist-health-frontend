@@ -20,7 +20,7 @@ const addroom = () => {
     };
     console.log(addroom);
     
-    axios.post("http://localhost:8000/room/create",addroom)
+    axios.post("http://146.190.92.231/room/create",addroom)
     .then(res => {
         console.log("success");
         navigate('/adminroom')

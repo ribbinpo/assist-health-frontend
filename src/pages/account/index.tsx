@@ -36,7 +36,7 @@ const account = ({ id }: any) => {
     const userId = user.sub;
     const getItems = async () => {
         const res = await axios.get(
-        `http://localhost:8000/classes/getByUserId?id=${userId}`,
+        `http://146.190.92.231/classes/getByUserId?id=${userId}`,
         );
         setItems(res.data.users)              
         // console.log(res.data);

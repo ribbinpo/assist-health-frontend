@@ -10,7 +10,7 @@ const del: React.FC<any> = ({currentUser}) => {
     const id = (currentUser.id)
     console.log(id);
     
-    axios.delete(`http://localhost:8000/classes/${id}`)
+    axios.delete(`http://146.190.92.231/classes/${id}`)
     .then(res => {
         console.log("success");
         

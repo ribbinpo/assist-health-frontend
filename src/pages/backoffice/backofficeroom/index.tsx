@@ -50,7 +50,7 @@ const adminroom = () => {
 
     useEffect(() => {
         const getItems = async () => {
-            const response = await axios.get("http://localhost:8000/room/getAll")
+            const response = await axios.get("http://146.190.92.231/room/getAll")
             const data = response.data
             setItems(data)
         }

@@ -22,7 +22,7 @@ const trainerschdule = () => {
         console.log('customerId',state);
         console.log('start', new Date(_start));
         console.log('end',new Date(_end));
-        axios.post('http://localhost:8000/booking/bookTrainer', {
+        axios.post('http://146.190.92.231/booking/bookTrainer', {
             start_time: new Date(_start),
             end_time: new Date(_end),
             trainer_id: state,
